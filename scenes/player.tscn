@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://mdel8ixxul36"]
 
 [ext_resource type="Texture2D" uid="uid://dpbebwp3hlgm0" path="res://assets/Square.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bf5x8mssenyra" path="res://scenes/player.gd" id="1_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(16, 16)
@@ -9,12 +10,16 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=423775517]
+script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1041444123]
 shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1390643958]
 texture = ExtResource("1_3vyb7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=935365936]
+position_smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=333404993]
 

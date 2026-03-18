@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://310d3lmhgyjb"]
+
+[ext_resource type="Texture2D" uid="uid://c6pyec15v3but" path="res://assets/floor.png" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://mdel8ixxul36" path="res://scenes/player.tscn" id="2_rwgxs"]
+
+[node name="World" type="Node2D" unique_id=2109249253]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=62693406]
+repeat_size = Vector2(315, 250)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1061306634]
+position = Vector2(50, 307)
+texture = ExtResource("1_nnsk1")
+
+[node name="Player" parent="." unique_id=423775517 instance=ExtResource("2_rwgxs")]
+position = Vector2(240, 427)
