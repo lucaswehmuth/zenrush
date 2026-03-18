@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://daxcmrm16wjij"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_6wx45"]
+
+[node name="TouchControls" type="CanvasLayer" unique_id=1929942516]
+
+[node name="Virtual Joystick" parent="." unique_id=514957772 instance=ExtResource("1_6wx45")]
+deadzone_size = 0.0
+clampzone_size = 30.0
+joystick_mode = 1
+visibility_mode = 2
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"
