@@ -26,6 +26,7 @@ window/emulate_mouse_from_touch=true
 [global_group]
 
 enemy=""
+player=""
 
 [input]
 
