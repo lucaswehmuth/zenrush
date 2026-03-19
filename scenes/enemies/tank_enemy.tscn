@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2r4nrp2akbcj"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_4q0m4"]
+[ext_resource type="Script" uid="uid://cwme7bnbwx8dn" path="res://scenes/enemies/tank_enemy.gd" id="2_egecj"]
+
+[node name="TankEnemy" unique_id=1388353835 instance=ExtResource("1_4q0m4")]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("2_egecj")
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.34101894, 7.069204e-07, 1.2032687e-07, 1)
