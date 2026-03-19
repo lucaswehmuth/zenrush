@@ -28,6 +28,7 @@ func _move(delta: float) -> void:
 
 func take_damage(amount: float) -> void:
 	current_health -= amount
+	print("took damage - current_health =", current_health)
 	if current_health <= 0.0:
 		die()
 
