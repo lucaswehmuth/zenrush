@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dpbebwp3hlgm0" path="res://assets/Square.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bf5x8mssenyra" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://bbwmjpb5q3yv" path="res://scenes/attacks/base_projectile.tscn" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://c02u8oigkbql6" path="res://classes/hurtbox.gd" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(16, 16)
@@ -23,7 +24,9 @@ texture = ExtResource("1_3vyb7")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=935365936]
 position_smoothing_enabled = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=333404993]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1999821459]
+script = ExtResource("4_dqkch")
+metadata/_custom_type_script = "uid://c02u8oigkbql6"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=581859647]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=581859647]
 shape = SubResource("RectangleShape2D_g2els")

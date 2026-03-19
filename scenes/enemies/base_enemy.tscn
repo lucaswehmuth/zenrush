@@ -5,9 +5,6 @@
 [ext_resource type="Script" uid="uid://b6eiee7g77d8k" path="res://classes/hitbox.gd" id="3_n763p"]
 [ext_resource type="Script" uid="uid://c02u8oigkbql6" path="res://classes/hurtbox.gd" id="4_ylyo2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_n763p"]
-radius = 58.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_qf3h2"]
 radius = 58.0
 
@@ -24,7 +21,6 @@ texture = ExtResource("1_r5xb8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=821677803]
 position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_n763p")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1940046434]
 script = ExtResource("3_n763p")

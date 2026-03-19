@@ -37,7 +37,7 @@ func _on_hurt(hitbox: Hitbox) -> void:
 
 func take_damage(amount: float) -> void:
 	current_health -= amount
-	print("took damage - current_health =", current_health)
+	print(self, "Took damage - health:", current_health)
 	if current_health <= 0.0:
 		die()
 
