@@ -31,7 +31,7 @@ func _move(delta: float) -> void:
 	
 func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
-	if attacker is BaseProjectile:
+	if attacker is BaseProjectile and attacker.shooter == "player":
 		take_damage(attacker.damage)
 		attacker.queue_free()
 

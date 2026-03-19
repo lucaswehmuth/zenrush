@@ -13,6 +13,7 @@ radius = 58.0
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1388353835 groups=["enemy"]]
 scale = Vector2(0.2, 0.2)
+motion_mode = 1
 script = ExtResource("1_qf3h2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=957711389]

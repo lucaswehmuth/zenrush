@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://qlhsq328doj7"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_tegwr"]
+[ext_resource type="Script" uid="uid://dx2uvofkwapu2" path="res://scenes/enemies/ranged_enemy.gd" id="2_k7uv6"]
+[ext_resource type="PackedScene" uid="uid://bbwmjpb5q3yv" path="res://scenes/attacks/base_projectile.tscn" id="3_d5ppq"]
+
+[node name="RangedEnemy" unique_id=1388353835 instance=ExtResource("1_tegwr")]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("2_k7uv6")
+min_range = 200.0
+max_range = 350.0
+fire_cooldown = 2.0
+projectile_scene = ExtResource("3_d5ppq")
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.9098754, 2.117753e-06, 0.55788636, 1)

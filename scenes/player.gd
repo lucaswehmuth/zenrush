@@ -19,8 +19,13 @@ func _ready() -> void:
 	
 func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
+	print(attacker)
 	if attacker is BaseEnemy:
 		take_damage(attacker.damage)
+	
+	if attacker is BaseProjectile and attacker.shooter == "enemy":
+		take_damage(attacker.damage)
+		attacker.queue_free()
 
 func take_damage(amount: float) -> void:
 	current_health -= amount
@@ -49,6 +54,7 @@ func _shoot(target: BaseEnemy) -> void:
 	if not projectile_scene:
 		return
 	var projectile = projectile_scene.instantiate()
+	projectile.shooter = "player"
 	get_tree().root.add_child(projectile)
 	var direction = (target.global_position - global_position).normalized()
 	projectile.init(global_position, direction)
