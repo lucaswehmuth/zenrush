@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
 var input_vector = Vector2.ZERO
 
+@export var speed: float = 300.0
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
 @export var attack_cooldown: float = 0.8
@@ -10,7 +10,7 @@ var attack_timer: float = 0.0
 
 func _physics_process(delta: float) -> void:
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = input_vector * SPEED
+	velocity = input_vector * speed
 	
 	attack_timer -= delta
 	if attack_timer <= 0.0:

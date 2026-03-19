@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dqjojh2tv5hyj" path="res://scenes/enemies/base_enemy.gd" id="1_qf3h2"]
 [ext_resource type="Texture2D" uid="uid://cn1p3fsbee106" path="res://assets/Circle.png" id="1_r5xb8"]
+[ext_resource type="Script" uid="uid://b6eiee7g77d8k" path="res://classes/hitbox.gd" id="3_n763p"]
+[ext_resource type="Script" uid="uid://c02u8oigkbql6" path="res://classes/hurtbox.gd" id="4_ylyo2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r5xb8"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_n763p"]
 radius = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qf3h2"]
@@ -22,15 +24,19 @@ texture = ExtResource("1_r5xb8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=821677803]
 position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_r5xb8")
+shape = SubResource("CircleShape2D_n763p")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1761754044]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1940046434]
+script = ExtResource("3_n763p")
+metadata/_custom_type_script = "uid://b6eiee7g77d8k"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1446273988]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_qf3h2")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1977905174]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=411529934]
+script = ExtResource("4_ylyo2")
+metadata/_custom_type_script = "uid://c02u8oigkbql6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=502563482]
 position = Vector2(0, 2)
