@@ -23,7 +23,6 @@ shape = SubResource("RectangleShape2D_3vyb7")
 texture = ExtResource("1_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=935365936]
-position_smoothing_enabled = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1999821459]
 script = ExtResource("4_dqkch")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://brh4u1738kw7f"]
+
+[ext_resource type="Script" uid="uid://c6uj312q6cajg" path="res://scenes/enemies/spawn_manager.gd" id="1_ax8qu"]
+[ext_resource type="PackedScene" uid="uid://b2r4nrp2akbcj" path="res://scenes/enemies/tank_enemy.tscn" id="2_olvqc"]
+[ext_resource type="PackedScene" uid="uid://qlhsq328doj7" path="res://scenes/enemies/ranged_enemy.tscn" id="3_s4lw7"]
+
+[node name="SpawnManager" type="Node2D" unique_id=1928806202]
+script = ExtResource("1_ax8qu")
+tank_scene = ExtResource("2_olvqc")
+ranged_scene = ExtResource("3_s4lw7")
