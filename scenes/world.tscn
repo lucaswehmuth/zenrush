@@ -9,7 +9,7 @@
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=62693406]
 repeat_size = Vector2(315, 250)
-repeat_times = 5
+repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1061306634]
 position = Vector2(50, 307)
