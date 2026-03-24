@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://brh4u1738kw7f"]
 
 [ext_resource type="Script" uid="uid://c6uj312q6cajg" path="res://scenes/enemies/spawn_manager.gd" id="1_ax8qu"]
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="2_2o7eo"]
 [ext_resource type="PackedScene" uid="uid://b2r4nrp2akbcj" path="res://scenes/enemies/tank_enemy.tscn" id="2_olvqc"]
+[ext_resource type="PackedScene" uid="uid://dfkftjbbr1py7" path="res://scenes/enemies/rusher_enemy.tscn" id="3_12nki"]
 [ext_resource type="PackedScene" uid="uid://qlhsq328doj7" path="res://scenes/enemies/ranged_enemy.tscn" id="3_s4lw7"]
 
 [node name="SpawnManager" type="Node2D" unique_id=1928806202]
 script = ExtResource("1_ax8qu")
-tank_scene = ExtResource("2_olvqc")
+base_enemy_scene = ExtResource("2_2o7eo")
+rusher_scene = ExtResource("3_12nki")
 ranged_scene = ExtResource("3_s4lw7")
+tank_scene = ExtResource("2_olvqc")

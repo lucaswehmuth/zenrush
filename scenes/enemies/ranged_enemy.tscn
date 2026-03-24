@@ -12,6 +12,7 @@ max_range = 350.0
 projectile_speed = 100.0
 fire_cooldown = 2.0
 projectile_scene = ExtResource("3_d5ppq")
+max_health = 40.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=957711389]
 modulate = Color(0.9098754, 2.117753e-06, 0.55788636, 1)

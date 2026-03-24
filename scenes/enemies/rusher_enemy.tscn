@@ -4,7 +4,7 @@
 
 [node name="RusherEnemy" unique_id=1388353835 instance=ExtResource("1_06blf")]
 scale = Vector2(0.15, 0.15)
-max_health = 30.0
+max_health = 20.0
 move_speed = 150.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=957711389]
