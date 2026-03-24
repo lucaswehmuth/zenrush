@@ -4,6 +4,7 @@ extends CharacterBody2D
 signal died(enemy: BaseEnemy)
 
 @onready var hurtbox: Hurtbox = $Hurtbox
+@onready var health_bar: HealthBar = $HealthBar
 
 @export var max_health: float = 100.0
 @export var move_speed: float = 80.0
@@ -17,6 +18,7 @@ func _ready() -> void:
 	current_health = max_health
 	player = get_tree().get_first_node_in_group("player")
 	hurtbox.hurt.connect(_on_hurt)
+	health_bar.setup(max_health)
 
 func _physics_process(delta: float) -> void:
 	if player:
@@ -37,6 +39,7 @@ func _on_hurt(hitbox: Hitbox) -> void:
 
 func take_damage(amount: float) -> void:
 	current_health -= amount
+	health_bar.health = current_health
 	print(self, "Took damage - health:", current_health)
 	if current_health <= 0.0:
 		die()

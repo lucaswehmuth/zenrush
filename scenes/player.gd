@@ -8,7 +8,7 @@ var input_vector = Vector2.ZERO
 @export var speed: float = 300.0
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
-@export var attack_cooldown: float = 0.8
+@export var attack_cooldown: float = 0.5
 
 var attack_timer: float = 0.0
 var current_health: float

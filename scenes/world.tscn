@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://mdel8ixxul36" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://brh4u1738kw7f" path="res://scenes/enemies/spawn_manager.tscn" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://qlhsq328doj7" path="res://scenes/enemies/ranged_enemy.tscn" id="6_qfnet"]
 
 [node name="World" type="Node2D" unique_id=2109249253]
 
@@ -27,3 +29,8 @@ offset_bottom = 40.0
 [node name="TouchControls" parent="Control" unique_id=1929942516 instance=ExtResource("3_4wyf3")]
 
 [node name="SpawnManager" parent="." unique_id=1928806202 instance=ExtResource("4_k0juu")]
+
+[node name="BaseEnemy" parent="." unique_id=1388353835 instance=ExtResource("5_71j4m")]
+position = Vector2(120.99999, 88.99999)
+
+[node name="RangedEnemy" parent="." unique_id=2060392647 instance=ExtResource("6_qfnet")]
