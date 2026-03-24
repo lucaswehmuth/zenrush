@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bf5x8mssenyra" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://bbwmjpb5q3yv" path="res://scenes/attacks/base_projectile.tscn" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://c02u8oigkbql6" path="res://classes/hurtbox.gd" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://b63y66kfkg5r6" path="res://scenes/components/health_bar.tscn" id="5_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(16, 16)
@@ -30,3 +31,9 @@ metadata/_custom_type_script = "uid://c02u8oigkbql6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=581859647]
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Healthbar" parent="." unique_id=441642719 instance=ExtResource("5_qlg0r")]
+offset_left = -30.0
+offset_top = -26.0
+offset_right = 30.0
+offset_bottom = -20.0

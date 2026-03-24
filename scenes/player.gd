@@ -3,8 +3,9 @@ extends CharacterBody2D
 var input_vector = Vector2.ZERO
 
 @onready var hurtbox: Hurtbox = $Hurtbox
+@onready var healthbar: HealthBar = $Healthbar
 
-@export var max_health: float = 99999.0
+@export var max_health: float = 1000
 @export var speed: float = 300.0
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
@@ -15,6 +16,7 @@ var current_health: float
 
 func _ready() -> void:
 	current_health = max_health
+	healthbar.setup(max_health)
 	hurtbox.hurt.connect(_on_hurt)
 	
 func _on_hurt(hitbox: Hitbox) -> void:
@@ -29,6 +31,7 @@ func _on_hurt(hitbox: Hitbox) -> void:
 
 func take_damage(amount: float) -> void:
 	current_health -= amount
+	healthbar.health = current_health
 	print(self, "Took damage - health:", current_health)
 	if current_health <= 0.0:
 		die()
