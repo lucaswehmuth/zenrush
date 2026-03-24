@@ -29,7 +29,7 @@ func _animate_damagebar() -> void:
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-func setup(_health: float):
+func init(_health: float):
 	max_value = _health
 	damagebar.max_value = _health
 	health = _health

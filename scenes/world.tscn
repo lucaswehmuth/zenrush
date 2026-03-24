@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brh4u1738kw7f" path="res://scenes/enemies/spawn_manager.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="5_71j4m"]
 [ext_resource type="PackedScene" uid="uid://qlhsq328doj7" path="res://scenes/enemies/ranged_enemy.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://dfkftjbbr1py7" path="res://scenes/enemies/rusher_enemy.tscn" id="7_i7141"]
 
 [node name="World" type="Node2D" unique_id=2109249253]
 
@@ -34,3 +35,7 @@ offset_bottom = 40.0
 position = Vector2(120.99999, 88.99999)
 
 [node name="RangedEnemy" parent="." unique_id=2060392647 instance=ExtResource("6_qfnet")]
+position = Vector2(407, 125)
+
+[node name="RusherEnemy" parent="." unique_id=373184879 instance=ExtResource("7_i7141")]
+position = Vector2(389.99997, 729.99994)

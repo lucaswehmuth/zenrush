@@ -9,6 +9,7 @@ scale = Vector2(0.25, 0.25)
 script = ExtResource("2_k7uv6")
 min_range = 200.0
 max_range = 350.0
+projectile_speed = 100.0
 fire_cooldown = 2.0
 projectile_scene = ExtResource("3_d5ppq")
 

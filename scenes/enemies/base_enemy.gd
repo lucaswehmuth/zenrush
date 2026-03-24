@@ -18,7 +18,7 @@ func _ready() -> void:
 	current_health = max_health
 	player = get_tree().get_first_node_in_group("player")
 	hurtbox.hurt.connect(_on_hurt)
-	health_bar.setup(max_health)
+	health_bar.init(max_health)
 
 func _physics_process(delta: float) -> void:
 	if player:

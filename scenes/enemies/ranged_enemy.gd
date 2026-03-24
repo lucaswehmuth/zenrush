@@ -6,6 +6,7 @@ var _projectile_spawn_offset: float = 0.0
 
 @export var min_range: float = 200.0
 @export var max_range: float = 350.0
+@export var projectile_speed: float = 100.0
 @export var fire_cooldown: float = 0.5
 @export var projectile_scene: PackedScene
 
@@ -52,4 +53,4 @@ func _shoot() -> void:
 	projectile.shooter = "enemy"
 	get_tree().root.add_child(projectile)
 	var direction = (player.global_position - global_position).normalized()
-	projectile.init(global_position + direction * _projectile_spawn_offset, direction)
+	projectile.init(global_position + direction * _projectile_spawn_offset, direction, projectile_speed, Color.HOT_PINK)

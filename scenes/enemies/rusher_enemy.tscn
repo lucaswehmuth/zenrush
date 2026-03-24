@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dfkftjbbr1py7"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_06blf"]
+
+[node name="RusherEnemy" unique_id=1388353835 instance=ExtResource("1_06blf")]
+scale = Vector2(0.15, 0.15)
+max_health = 30.0
+move_speed = 150.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(1, 0.29411766, 0, 1)

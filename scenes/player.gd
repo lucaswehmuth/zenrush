@@ -16,7 +16,7 @@ var current_health: float
 
 func _ready() -> void:
 	current_health = max_health
-	healthbar.setup(max_health)
+	healthbar.init(max_health)
 	hurtbox.hurt.connect(_on_hurt)
 	
 func _on_hurt(hitbox: Hitbox) -> void:
