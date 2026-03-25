@@ -9,6 +9,7 @@ extends Node2D
 @export var tank_scene: PackedScene
 
 const RUN_DURATION: float = 600.0  # 10 minutes
+const SAFE_RADIUS: float = 150.0
 
 var elapsed_time: float = 0.0
 var difficulty: float = 0.0
@@ -71,9 +72,13 @@ func _pick_enemy_scene() -> PackedScene:
 	if difficulty < 0.33:
 		# early — mostly base, some rushers, few ranged
 		return _weighted_pick([
-			[base_enemy_scene, 0.60],
-			[rusher_scene,     0.25],
-			[ranged_scene,     0.15],
+			#[base_enemy_scene, 0.60],
+			#[rusher_scene,     0.25],
+			#[ranged_scene,     0.15],
+			#[tank_scene,       0.00],
+			[base_enemy_scene, 0.10],
+			[rusher_scene,     0.10],
+			[ranged_scene,     0.80],
 			[tank_scene,       0.00],
 		])
 	elif difficulty < 0.66:
@@ -110,10 +115,17 @@ func _get_spawn_position() -> Vector2:
 	var center = camera.global_position
 	var half_w = get_viewport_rect().size.x / 2.0
 	var half_h = get_viewport_rect().size.y / 2.0
-	return center + Vector2(
-		randf_range(-half_w * 0.8, half_w * 0.8),
-		randf_range(-half_h * 0.8, half_h * 0.8)
-	)
+	var player = get_tree().get_first_node_in_group("player")
+	var player_pos = player.global_position if player else center
+
+	var angle = randf_range(0, TAU)
+	var radius = randf_range(SAFE_RADIUS, SAFE_RADIUS * 2.0)
+	var pos = player_pos + Vector2(cos(angle), sin(angle)) * radius
+
+	pos.x = clamp(pos.x, center.x - half_w * 0.8, center.x + half_w * 0.8)
+	pos.y = clamp(pos.y, center.y - half_h * 0.8, center.y + half_h * 0.8)
+
+	return pos
 
 func _end_run() -> void:
 	run_active = false

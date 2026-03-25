@@ -7,6 +7,7 @@
 [node name="RangedEnemy" unique_id=1388353835 instance=ExtResource("1_tegwr")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("2_k7uv6")
+shoot_range = 500.0
 min_range = 200.0
 max_range = 350.0
 projectile_speed = 100.0
