@@ -8,14 +8,19 @@ extends Node2D
 @export var ranged_scene: PackedScene
 @export var tank_scene: PackedScene
 
-const RUN_DURATION: float = 600.0  # 10 minutes
-const SAFE_RADIUS: float = 150.0
+## Total game run time in seconds - 10 minutes
+const RUN_DURATION: float = 600.0  
+
+## Minimum distance from the player at which enemies are allowed to spawn. 
+const SAFE_RADIUS: float = 150.0 
 
 var elapsed_time: float = 0.0
 var difficulty: float = 0.0
 var active_enemies: Array[BaseEnemy] = []
 var spawn_timer: float = 0.0
 var run_active: bool = false
+var enemies_killed: int = 0
+
 
 func _ready() -> void:
 	start_run()
@@ -35,7 +40,7 @@ func _process(delta: float) -> void:
 	_update_timer_label()
 
 	if elapsed_time >= RUN_DURATION:
-		_end_run()
+		stop_run()
 		return
 
 	spawn_timer -= delta
@@ -109,6 +114,7 @@ func _weighted_pick(entries: Array) -> PackedScene:
 
 func _on_enemy_died(enemy: BaseEnemy) -> void:
 	active_enemies.erase(enemy)
+	enemies_killed += 1
 
 func _get_spawn_position() -> Vector2:
 	var camera = get_viewport().get_camera_2d()
@@ -127,7 +133,7 @@ func _get_spawn_position() -> Vector2:
 
 	return pos
 
-func _end_run() -> void:
+func stop_run() -> void:
 	run_active = false
 	for enemy in active_enemies:
 		if is_instance_valid(enemy):

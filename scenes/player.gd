@@ -1,11 +1,11 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 var input_vector = Vector2.ZERO
 
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var healthbar: HealthBar = $Healthbar
 
-@export var max_health: float = 1000
+@export var max_health: float = 50
 @export var speed: float = 300.0
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
@@ -13,6 +13,9 @@ var input_vector = Vector2.ZERO
 
 var attack_timer: float = 0.0
 var current_health: float
+var is_dead: bool = false
+
+signal died
 
 func _ready() -> void:
 	current_health = max_health
@@ -30,6 +33,8 @@ func _on_hurt(hitbox: Hitbox) -> void:
 		attacker.queue_free()
 
 func take_damage(amount: float) -> void:
+	if is_dead:
+		return
 	current_health -= amount
 	healthbar.health = current_health
 	print(self, "Took damage - health:", current_health)
@@ -37,8 +42,11 @@ func take_damage(amount: float) -> void:
 		die()
 		
 func die() -> void:
+	is_dead = true
 	print("Player died")
-	queue_free()
+	set_physics_process(false)
+	hide()
+	died.emit()
 
 func _physics_process(delta: float) -> void:
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
