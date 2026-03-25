@@ -5,7 +5,7 @@ var input_vector = Vector2.ZERO
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var healthbar: HealthBar = $Healthbar
 
-@export var max_health: float = 50
+@export var max_health: float = 1000
 @export var speed: float = 300.0
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
@@ -14,6 +14,7 @@ var input_vector = Vector2.ZERO
 var attack_timer: float = 0.0
 var current_health: float
 var is_dead: bool = false
+var shards : int = 0
 
 signal died
 

@@ -9,10 +9,10 @@ func _ready() -> void:
 	print(restart_button)
 	restart_button.pressed.connect(_on_restart)
 
-func show_death(elapsed: float, enemies_killed: int) -> void:
+func show_death(elapsed: float, enemies_killed: int, shards: int, total_shards: int) -> void:
 	var minutes = int(elapsed / 60.0)
 	var seconds = int(fmod(elapsed, 60.0))
-	stats_label.text = "Time survived: %02d:%02d\nEnemies killed: %d" % [minutes, seconds, enemies_killed]
+	stats_label.text = "Time survived: %02d:%02d\nEnemies killed: %d\nShards collected: %d\nTotal shards: %d" % [minutes, seconds, enemies_killed, shards, total_shards]
 	show()
 
 func _on_restart() -> void:

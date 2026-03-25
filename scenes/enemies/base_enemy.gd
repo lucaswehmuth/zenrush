@@ -10,6 +10,7 @@ signal died(enemy: BaseEnemy)
 @export var move_speed: float = 80.0
 @export var damage: float = 10.0
 @export var shard_value: int = 1
+@export var shard_scene: PackedScene
 
 var current_health: float
 var player: Node2D
@@ -45,6 +46,12 @@ func take_damage(amount: float) -> void:
 		die()
 
 func die() -> void:
-	# emit signal, drop shards, play death anim
+	if shard_scene:
+		var shard = shard_scene.instantiate()
+		shard.value = shard_value
+		shard.global_position = global_position
+		get_tree().root.add_child(shard)
+		
+	# emit signal, play death anim
 	died.emit(self)
 	queue_free()

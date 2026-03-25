@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqjojh2tv5hyj" path="res://scenes/enemies/base_enemy.gd" id="1_qf3h2"]
 [ext_resource type="Texture2D" uid="uid://cn1p3fsbee106" path="res://assets/Circle.png" id="1_r5xb8"]
+[ext_resource type="PackedScene" uid="uid://cvcwr36v508mi" path="res://scenes/collectibles/shard.tscn" id="2_2t7ph"]
 [ext_resource type="Script" uid="uid://b6eiee7g77d8k" path="res://classes/hitbox.gd" id="3_n763p"]
 [ext_resource type="Script" uid="uid://c02u8oigkbql6" path="res://classes/hurtbox.gd" id="4_ylyo2"]
 [ext_resource type="PackedScene" uid="uid://b63y66kfkg5r6" path="res://scenes/components/health_bar.tscn" id="5_ylyo2"]
@@ -17,6 +18,7 @@ scale = Vector2(0.2, 0.2)
 motion_mode = 1
 script = ExtResource("1_qf3h2")
 max_health = 30.0
+shard_scene = ExtResource("2_2t7ph")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=957711389]
 modulate = Color(1, 0, 0, 1)

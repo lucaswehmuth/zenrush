@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cvcwr36v508mi"]
+
+[ext_resource type="Texture2D" uid="uid://c5kd53tpu1xl2" path="res://assets/shards.png" id="1_w3ytt"]
+[ext_resource type="Script" uid="uid://br0i3oc84r5x2" path="res://scenes/collectibles/shard.gd" id="1_ydaqd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ydaqd"]
+radius = 159.99998
+height = 379.99997
+
+[node name="Shard" type="Area2D" unique_id=202317692]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_ydaqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=297792430]
+texture = ExtResource("1_w3ytt")
+region_enabled = true
+region_rect = Rect2(148, 20, 64, 136)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=946782897]
+shape = SubResource("CapsuleShape2D_ydaqd")

@@ -77,14 +77,14 @@ func _pick_enemy_scene() -> PackedScene:
 	if difficulty < 0.33:
 		# early — mostly base, some rushers, few ranged
 		return _weighted_pick([
-			#[base_enemy_scene, 0.60],
-			#[rusher_scene,     0.25],
-			#[ranged_scene,     0.15],
-			#[tank_scene,       0.00],
-			[base_enemy_scene, 0.10],
-			[rusher_scene,     0.10],
-			[ranged_scene,     0.80],
+			[base_enemy_scene, 0.60],
+			[rusher_scene,     0.25],
+			[ranged_scene,     0.15],
 			[tank_scene,       0.00],
+			#[base_enemy_scene, 0.10],
+			#[rusher_scene,     0.10],
+			#[ranged_scene,     0.80],
+			#[tank_scene,       0.00],
 		])
 	elif difficulty < 0.66:
 		# mid — same but tanks start appearing
