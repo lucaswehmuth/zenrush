@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AttackSpeedUpgrade" format=3 uid="uid://wffrw2wix5im"]
+
+[ext_resource type="Script" uid="uid://b441oqduuovty" path="res://scenes/upgrades/attack_speed_upgrade.gd" id="1_i6hs2"]
+
+[resource]
+script = ExtResource("1_i6hs2")
+cooldown_reduction = 0.2
+upgrade_name = "+10 Attack Speed"
+metadata/_custom_type_script = "uid://b441oqduuovty"

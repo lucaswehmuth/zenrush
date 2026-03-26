@@ -5,16 +5,20 @@ var input_vector = Vector2.ZERO
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var healthbar: HealthBar = $Healthbar
 
-@export var max_health: float = 50
+@export var max_health: float = 1000.0
 @export var speed: float = 300.0
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
 @export var attack_cooldown: float = 0.5
+@export var base_attack_cooldown: float = 0.5
 
+var burst_count: int = 1
 var attack_timer: float = 0.0
 var current_health: float
 var is_dead: bool = false
 var shards : int = 0
+@export var projectile_upgrades: Array[BaseProjectileUpgrade] = []
+@export var player_upgrades: Array[BasePlayerUpgrade] = []
 
 signal died
 
@@ -22,6 +26,9 @@ func _ready() -> void:
 	current_health = max_health
 	healthbar.init(max_health)
 	hurtbox.hurt.connect(_on_hurt)
+	for upgrade in player_upgrades:
+		upgrade.apply(self)
+	print("Final attack cooldown: ", attack_cooldown)
 	
 func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
@@ -63,6 +70,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _shoot(target: BaseEnemy) -> void:
+	for i in burst_count:
+		await get_tree().create_timer(0.1 * i).timeout
+		if is_instance_valid(target):
+			_fire_projectile(target)
+
+func _fire_projectile(target: BaseEnemy) -> void:
 	if not projectile_scene:
 		return
 	var projectile = projectile_scene.instantiate()
@@ -70,6 +83,8 @@ func _shoot(target: BaseEnemy) -> void:
 	get_tree().root.add_child(projectile)
 	var direction = (target.global_position - global_position).normalized()
 	projectile.init(global_position, direction)
+	for upgrade in projectile_upgrades:
+		upgrade.apply(projectile)
 	
 func _get_nearest_enemy() -> BaseEnemy:
 	var enemies = get_tree().get_nodes_in_group("enemy")

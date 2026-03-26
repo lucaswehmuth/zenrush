@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://brh4u1738kw7f" path="res://scenes/enemies/spawn_manager.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://202n68xmj3rx" path="res://scenes/components/save_manager.tscn" id="7_i7141"]
+[ext_resource type="PackedScene" uid="uid://g0ihc1hfcixd" path="res://scenes/upgrades/upgrade_pickup.tscn" id="8_4mrxx"]
+[ext_resource type="Resource" uid="uid://cwoipcmxihwr3" path="res://scenes/upgrades/burst_upgrade.tres" id="9_7r4gi"]
+[ext_resource type="Resource" uid="uid://wffrw2wix5im" path="res://scenes/upgrades/attack_speed_upgrade.tres" id="10_w7kh3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font_size = 32
@@ -27,6 +30,7 @@ label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
 
 [node name="DeathScreen" type="Control" parent="CanvasLayer" unique_id=1148446738]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,7 +126,16 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="TouchControls" parent="Control" unique_id=1929942516 instance=ExtResource("3_4wyf3")]
+visible = false
 
 [node name="SpawnManager" parent="." unique_id=1928806202 instance=ExtResource("4_k0juu")]
 
 [node name="SaveManager" parent="." unique_id=1392442018 instance=ExtResource("7_i7141")]
+
+[node name="BurstPickup" parent="." unique_id=539673170 instance=ExtResource("8_4mrxx")]
+position = Vector2(148, 615)
+player_upgrade = ExtResource("9_7r4gi")
+
+[node name="AttackSpeedPickup" parent="." unique_id=964040124 instance=ExtResource("8_4mrxx")]
+position = Vector2(268, 614)
+player_upgrade = ExtResource("10_w7kh3")
