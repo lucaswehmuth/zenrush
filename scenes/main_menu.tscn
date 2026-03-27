@@ -59,3 +59,14 @@ text = "Sandbox"
 layout_mode = 2
 
 [node name="SaveManager" parent="." unique_id=1392442018 instance=ExtResource("2_ekxnf")]
+
+[node name="TestButton" type="Button" parent="." unique_id=1870324047]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 123.0
+offset_top = 147.0
+offset_right = 323.0
+offset_bottom = 178.0
+action_mode = 0
+text = "test
+"
