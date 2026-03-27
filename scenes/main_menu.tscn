@@ -59,16 +59,6 @@ text = "Sandbox"
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/CenterContainer" unique_id=1515269584]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=2106402738]
-modulate = Color(1, 0, 1, 1)
-offset_left = 154.0
-offset_top = 612.0
-offset_right = 245.0
-offset_bottom = 702.0
-scale = Vector2(10, 10)
-texture_normal = ExtResource("3_bqqt6")
-texture_pressed = ExtResource("3_bqqt6")
-
 [node name="SaveManager" parent="." unique_id=1392442018 instance=ExtResource("2_ekxnf")]
 
 [node name="TestButton" type="Button" parent="." unique_id=1870324047]
@@ -87,6 +77,4 @@ position = Vector2(49, 22)
 scale = Vector2(9.125, 3.375)
 texture_normal = ExtResource("3_bqqt6")
 
-[connection signal="button_up" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_button_up"]
-[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

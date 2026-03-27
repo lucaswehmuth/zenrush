@@ -31,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="StatsLabel" type="Label" parent="CanvasLayer/Control" unique_id=987620067]
 layout_mode = 0
@@ -60,6 +61,7 @@ anchor_bottom = 1.0
 offset_top = -50.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -95,3 +97,6 @@ player_upgrade = SubResource("Resource_17a3a")
 [node name="Burst" parent="." unique_id=1622087359 instance=ExtResource("5_17a3a")]
 position = Vector2(310, 620)
 player_upgrade = SubResource("Resource_4b02c")
+
+[connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/BackButton" to="." method="_on_back_button_button_up"]

@@ -33,3 +33,11 @@ func _update_stats() -> void:
 		player.range_percent,
 		player.burst_count
 	]
+
+
+func _on_reset_button_button_up() -> void:
+	get_tree().reload_current_scene()
+
+
+func _on_back_button_button_up() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
