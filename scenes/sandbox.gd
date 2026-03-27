@@ -10,12 +10,12 @@ extends Node2D
 func _ready() -> void:
 	reset_button.pressed.connect(_on_reset)
 	back_button.pressed.connect(_on_back)
-	for pickup in get_tree().get_nodes_in_group("pickups"):
+	for pickup in get_tree().get_nodes_in_group("pickup"):
 		pickup.picked_up.connect(_on_pickup)
 	_update_stats()
 
 func _on_pickup(upgrade_name: String) -> void:
-	upgrades_label.text += "- %s\n" % upgrade_name
+	upgrades_label.text += "%s\n" % upgrade_name
 	_update_stats()
 
 func _on_reset() -> void:
@@ -25,9 +25,11 @@ func _on_back() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _update_stats() -> void:
-	stats_label.text = "HP: %s/%s\nSpeed: %s\nCooldown: %s" % [
+	stats_label.text = "HP: %s/%s\nSpeed: %s\nCooldown: %s\nRange: %s\nBurst: %s" % [
 		player.current_health,
 		player.max_health,
 		player.move_speed,
-		snappedf(player.attack_cooldown, 0.01)
+		snappedf(player.attack_cooldown, 0.01),
+		player.range_percent,
+		player.burst_count
 	]
