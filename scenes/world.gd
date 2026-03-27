@@ -4,7 +4,7 @@ extends Node2D
 @onready var spawn_manager: SpawnManager = $SpawnManager
 @onready var save_manager: SaveManager = $SaveManager
 @onready var touch_controls: CanvasLayer = $Control/TouchControls
-@onready var quit_button: Button = $CanvasLayer/QuitButton
+@onready var quit_button: Button = $CanvasLayer/MarginContainer/QuitButton
 
 func _ready() -> void:
 	#get_tree().get_root().print_tree_pretty()
