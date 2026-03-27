@@ -22,6 +22,7 @@ func _ready() -> void:
 	health_bar.init(max_health)
 
 func _physics_process(delta: float) -> void:
+	#print("MOVING:", self)
 	if player:
 		_move(delta)
 	move_and_slide()

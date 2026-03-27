@@ -30,6 +30,7 @@ window/emulate_mouse_from_touch=true
 
 enemy=""
 player=""
+pickup=""
 
 [input]
 

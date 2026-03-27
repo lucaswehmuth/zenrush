@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dbm0fspfwt1be"]
+
+[ext_resource type="PackedScene" uid="uid://mdel8ixxul36" path="res://scenes/player.tscn" id="1_2ddto"]
+[ext_resource type="Script" uid="uid://co6vemc07i3st" path="res://scenes/sandbox.gd" id="1_rgld7"]
+[ext_resource type="Texture2D" uid="uid://c6pyec15v3but" path="res://assets/floor.png" id="4_j6lu3"]
+[ext_resource type="PackedScene" uid="uid://b2r4nrp2akbcj" path="res://scenes/enemies/tank_enemy.tscn" id="4_tpt06"]
+[ext_resource type="PackedScene" uid="uid://g0ihc1hfcixd" path="res://scenes/upgrades/upgrade_pickup.tscn" id="5_17a3a"]
+[ext_resource type="Script" uid="uid://b441oqduuovty" path="res://scenes/upgrades/attack_speed_upgrade.gd" id="6_16ffl"]
+[ext_resource type="Script" uid="uid://gjue8cwmb0fn" path="res://scenes/upgrades/burst_upgrade.gd" id="7_17a3a"]
+
+[sub_resource type="Resource" id="Resource_17a3a"]
+script = ExtResource("6_16ffl")
+cooldown_reduction = 0.2
+upgrade_name = "+10 Attack Speed"
+metadata/_custom_type_script = "uid://b441oqduuovty"
+
+[sub_resource type="Resource" id="Resource_4b02c"]
+script = ExtResource("7_17a3a")
+upgrade_name = "2x bullet"
+metadata/_custom_type_script = "uid://gjue8cwmb0fn"
+
+[node name="Sandbox" type="Node2D" unique_id=331774593]
+script = ExtResource("1_rgld7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1925713067]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1348894136]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsLabel" type="Label" parent="CanvasLayer/Control" unique_id=987620067]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/Control" unique_id=1448207587]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.5
+offset_top = -31.0
+offset_right = 25.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Reset"
+
+[node name="UpgradesLabel" type="Label" parent="CanvasLayer/Control" unique_id=1830405872]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1161497040]
+repeat_size = Vector2(315, 250)
+repeat_times = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=532240013]
+position = Vector2(50, 307)
+texture = ExtResource("4_j6lu3")
+
+[node name="Player" parent="." unique_id=423775517 instance=ExtResource("1_2ddto")]
+position = Vector2(245, 429)
+
+[node name="TankEnemy" parent="." unique_id=1388353835 instance=ExtResource("4_tpt06")]
+position = Vector2(243, 196)
+max_health = 10000.0
+
+[node name="AttackSpeed" parent="." unique_id=539673170 instance=ExtResource("5_17a3a")]
+position = Vector2(146, 623)
+player_upgrade = SubResource("Resource_17a3a")
+
+[node name="Burst" parent="." unique_id=1622087359 instance=ExtResource("5_17a3a")]
+position = Vector2(310, 620)
+player_upgrade = SubResource("Resource_4b02c")

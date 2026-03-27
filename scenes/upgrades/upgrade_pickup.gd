@@ -6,6 +6,8 @@ extends Area2D
 
 @onready var label: Label = $Label
 
+signal picked_up(upgrade_name: String)
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	if player_upgrade:
@@ -19,7 +21,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if player_upgrade:
 		player_upgrade.apply(body)
 		body.player_upgrades.append(player_upgrade)
+		picked_up.emit(player_upgrade.upgrade_name)
 	if projectile_upgrade:
 		body.projectile_upgrades.append(projectile_upgrade)
 		projectile_upgrade.apply(body)
+		picked_up.emit(projectile_upgrade.upgrade_name)
 	queue_free()

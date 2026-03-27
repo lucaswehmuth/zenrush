@@ -6,7 +6,7 @@ extends Node2D
 @onready var touch_controls: CanvasLayer = $Control/TouchControls
 
 func _ready() -> void:
-	get_tree().get_root().print_tree_pretty()
+	#get_tree().get_root().print_tree_pretty()
 	player.died.connect(_on_player_died)
 
 func _on_player_died() -> void:

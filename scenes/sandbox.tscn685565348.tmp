@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dbm0fspfwt1be"]
+
+[ext_resource type="PackedScene" uid="uid://mdel8ixxul36" path="res://scenes/player.tscn" id="1_2ddto"]
+[ext_resource type="Script" uid="uid://co6vemc07i3st" path="res://scenes/sandbox.gd" id="1_rgld7"]
+
+[node name="Sandbox" type="Node2D" unique_id=331774593]
+script = ExtResource("1_rgld7")
+
+[node name="Player" parent="." unique_id=423775517 instance=ExtResource("1_2ddto")]

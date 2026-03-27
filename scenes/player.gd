@@ -4,13 +4,15 @@ var input_vector = Vector2.ZERO
 
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var healthbar: HealthBar = $Healthbar
+@onready var camera_2d: Camera2D = $Camera2D
 
 @export var max_health: float = 1000.0
-@export var speed: float = 300.0
+@export var move_speed: float = 300.0
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
 @export var attack_cooldown: float = 0.5
 @export var base_attack_cooldown: float = 0.5
+@export var range_percent: float = 0.9
 
 var burst_count: int = 1
 var attack_timer: float = 0.0
@@ -23,12 +25,28 @@ var shards : int = 0
 signal died
 
 func _ready() -> void:
+	print("Player groups:", get_groups())
+	get_tree().get_root().print_tree_pretty()
 	current_health = max_health
 	healthbar.init(max_health)
 	hurtbox.hurt.connect(_on_hurt)
 	for upgrade in player_upgrades:
 		upgrade.apply(self)
 	print("Final attack cooldown: ", attack_cooldown)
+	
+func _draw():
+	draw_circle(Vector2.ZERO, _get_dynamic_range(), Color(0, 0, 0, 0.05))
+	
+func _get_screen_size_world() -> Vector2:
+	var viewport_size = get_viewport_rect().size
+	var zoom = camera_2d.zoom
+	return viewport_size * zoom
+	
+func _get_camera_rect() -> Rect2:
+	var viewport_size = get_viewport_rect().size
+	var size = viewport_size * $Camera2D.zoom
+	var top_left = global_position - size * 0.5
+	return Rect2(top_left, size)
 	
 func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
@@ -57,41 +75,56 @@ func die() -> void:
 	died.emit()
 
 func _physics_process(delta: float) -> void:
+	queue_redraw()
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = input_vector * speed
-	
+	velocity = input_vector * move_speed
 	attack_timer -= delta
 	if attack_timer <= 0.0:
 		var target = _get_nearest_enemy()
 		if target:
 			_shoot(target)
 			attack_timer = attack_cooldown
-			
 	move_and_slide()
 
 func _shoot(target: BaseEnemy) -> void:
 	for i in burst_count:
-		await get_tree().create_timer(0.1 * i).timeout
-		if is_instance_valid(target):
+		if i == 0:
 			_fire_projectile(target)
+		else:
+			await get_tree().create_timer(0.1 * i).timeout
+			if is_instance_valid(target):
+				_fire_projectile(target)
 
 func _fire_projectile(target: BaseEnemy) -> void:
 	if not projectile_scene:
 		return
 	var projectile = projectile_scene.instantiate()
 	projectile.shooter = "player"
-	get_tree().root.add_child(projectile)
+	get_tree().current_scene.add_child(projectile)
 	var direction = (target.global_position - global_position).normalized()
 	projectile.init(global_position, direction)
 	for upgrade in projectile_upgrades:
 		upgrade.apply(projectile)
 	
+func _get_dynamic_range() -> float:
+	var screen_size = _get_screen_size_world()
+	
+	# use diagonal or smaller axis (both are valid approaches)
+	var radius = min(screen_size.x, screen_size.y) * 0.5
+	
+	return radius * range_percent
+	
 func _get_nearest_enemy() -> BaseEnemy:
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	var nearest: BaseEnemy = null
-	var nearest_dist = attack_range
+	var nearest_dist = _get_dynamic_range()
+	var camera_rect = _get_camera_rect()
 
 	for enemy in enemies:
+		# 🚫 HARD FILTER: must be on screen
+		if not camera_rect.has_point(enemy.global_position):
+			continue
+
 		var dist = global_position.distance_to(enemy.global_position)
 		if dist < nearest_dist:
 			nearest_dist = dist
