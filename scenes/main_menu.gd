@@ -8,14 +8,24 @@ extends Control
 func _ready() -> void:
 	total_shards_label.text = "Shards: %d" % save_manager.total_shards
 	play_button.pressed.connect(_on_play)
+	play_button.button_up.connect(_on_play_up)
 	sandbox_button.pressed.connect(_on_sandbox)
+	sandbox_button.button_up.connect(_on_sandbox_up)
 
 func _on_play() -> void:
 	print("play")
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	
+func _on_play_up() -> void:
+	print("play up")
+	get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 func _on_sandbox() -> void:
 	print("sandbox")
+	get_tree().change_scene_to_file("res://scenes/sandbox.tscn")
+	
+func _on_sandbox_up() -> void:
+	print("sandbox up")
 	get_tree().change_scene_to_file("res://scenes/sandbox.tscn")
 
 func _input(event):
