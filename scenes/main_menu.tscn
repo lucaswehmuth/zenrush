@@ -55,7 +55,4 @@ theme_override_font_sizes/font_size = 24
 action_mode = 0
 text = "Sandbox"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/CenterContainer" unique_id=1515269584]
-layout_mode = 2
-
 [node name="SaveManager" parent="." unique_id=1392442018 instance=ExtResource("2_ekxnf")]

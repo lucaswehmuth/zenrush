@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var stats_label: Label = $CanvasLayer/Control/StatsLabel
 @onready var quit_button: Button = $CanvasLayer/Control/MarginContainer/HBoxContainer/QuitButton
 @onready var reset_button: Button = $CanvasLayer/Control/MarginContainer/HBoxContainer/ResetButton
-@onready var upgrades_label: Label = $CanvasLayer/Control/UpgradesLabel
+@onready var stats_label: Label = $CanvasLayer/Control/MarginContainer2/StatsLabel
+@onready var upgrades_label: Label = $CanvasLayer/Control/MarginContainer2/UpgradesLabel
 @onready var player: Player = $Player
 
 func _ready() -> void:
