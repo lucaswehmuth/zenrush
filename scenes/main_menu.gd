@@ -17,3 +17,7 @@ func _on_play() -> void:
 func _on_sandbox() -> void:
 	print("sandbox")
 	get_tree().change_scene_to_file("res://scenes/sandbox.tscn")
+
+func _input(event):
+	if event is InputEventScreenTouch:
+		print("TOUCH DETECTED:", event.position)
