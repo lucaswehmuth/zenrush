@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bq5qykmu72c8c" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://202n68xmj3rx" path="res://scenes/components/save_manager.tscn" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://dpbebwp3hlgm0" path="res://assets/Square.png" id="3_bqqt6"]
 
 [node name="MainMenu" type="Control" unique_id=73339726]
 layout_mode = 3
@@ -70,3 +71,10 @@ offset_bottom = 178.0
 action_mode = 0
 text = "test
 "
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=1553646272]
+position = Vector2(49, 22)
+scale = Vector2(9.125, 3.375)
+texture_normal = ExtResource("3_bqqt6")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
