@@ -116,8 +116,8 @@ anchor_bottom = 1.0
 offset_top = -40.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MarginContainer" unique_id=1468582015]
