@@ -11,7 +11,9 @@ func _ready() -> void:
 	sandbox_button.pressed.connect(_on_sandbox)
 
 func _on_play() -> void:
+	print("play")
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 func _on_sandbox() -> void:
+	print("sandbox")
 	get_tree().change_scene_to_file("res://scenes/sandbox.tscn")
