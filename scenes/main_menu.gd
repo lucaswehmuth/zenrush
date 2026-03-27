@@ -6,6 +6,7 @@ extends Control
 @onready var sandbox_button: Button = $CanvasLayer/CenterContainer/VBoxContainer/SandboxButton
 @onready var test_button: Button = $TestButton
 @onready var touch_screen_button: TouchScreenButton = $TouchScreenButton
+@onready var texture_button: TextureButton = $CanvasLayer/TextureButton
 
 func _ready() -> void:
 	total_shards_label.text = "Shards: %d" % save_manager.total_shards
@@ -44,3 +45,11 @@ func _on_test_up() -> void:
 
 func _on_touch_screen_button_pressed() -> void:
 	print("TOUCHED")
+
+
+func _on_texture_button_pressed() -> void:
+	print("texture pressed")
+
+
+func _on_texture_button_button_up() -> void:
+	print("texture UP")
