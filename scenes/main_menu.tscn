@@ -23,7 +23,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer" unique_id=2059097297]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer" unique_id=1459051606]
 layout_mode = 2
@@ -43,5 +43,14 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Play"
+
+[node name="SandboxButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer" unique_id=1754921470]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Sandbox"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/CenterContainer" unique_id=1515269584]
+layout_mode = 2
 
 [node name="SaveManager" parent="." unique_id=1392442018 instance=ExtResource("2_ekxnf")]

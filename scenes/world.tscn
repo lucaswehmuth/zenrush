@@ -18,6 +18,7 @@ font_size = 32
 script = ExtResource("1_71j4m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1839601420]
+layer = 5
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1528753610]
 offset_left = 204.0
@@ -107,6 +108,20 @@ grow_vertical = 2
 text = "Menu
 "
 
+[node name="QuitButton" type="Button" parent="CanvasLayer" unique_id=1468582015]
+custom_minimum_size = Vector2(200, 40)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -31.0
+offset_right = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quit"
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=62693406]
 repeat_size = Vector2(315, 250)
 repeat_times = 7
@@ -126,7 +141,6 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="TouchControls" parent="Control" unique_id=1929942516 instance=ExtResource("3_4wyf3")]
-visible = false
 
 [node name="SpawnManager" parent="." unique_id=1928806202 instance=ExtResource("4_k0juu")]
 

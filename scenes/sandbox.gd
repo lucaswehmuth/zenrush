@@ -1,13 +1,15 @@
 extends Node2D
 
 @onready var stats_label: Label = $CanvasLayer/Control/StatsLabel
-@onready var reset_button: Button = $CanvasLayer/Control/ResetButton
+@onready var reset_button: Button = $CanvasLayer/Control/HBoxContainer/ResetButton
+@onready var back_button: Button = $CanvasLayer/Control/HBoxContainer/BackButton
 @onready var upgrades_label: Label = $CanvasLayer/Control/UpgradesLabel
 
 @onready var player: Player = $Player
 
 func _ready() -> void:
 	reset_button.pressed.connect(_on_reset)
+	back_button.pressed.connect(_on_back)
 	for pickup in get_tree().get_nodes_in_group("pickups"):
 		pickup.picked_up.connect(_on_pickup)
 	_update_stats()
@@ -18,6 +20,9 @@ func _on_pickup(upgrade_name: String) -> void:
 
 func _on_reset() -> void:
 	get_tree().reload_current_scene()
+	
+func _on_back() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _update_stats() -> void:
 	stats_label.text = "HP: %s/%s\nSpeed: %s\nCooldown: %s" % [

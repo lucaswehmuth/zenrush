@@ -37,24 +37,32 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="ResetButton" type="Button" parent="CanvasLayer/Control" unique_id=1448207587]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -25.5
-offset_top = -31.0
-offset_right = 25.5
-grow_horizontal = 2
-grow_vertical = 0
-text = "Reset"
-
 [node name="UpgradesLabel" type="Label" parent="CanvasLayer/Control" unique_id=1830405872]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1469189884]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=1448207587]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Reset"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=1743594893]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Back"
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1161497040]
 repeat_size = Vector2(315, 250)
