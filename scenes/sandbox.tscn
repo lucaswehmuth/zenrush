@@ -5,21 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://c6pyec15v3but" path="res://assets/floor.png" id="4_j6lu3"]
 [ext_resource type="PackedScene" uid="uid://b2r4nrp2akbcj" path="res://scenes/enemies/tank_enemy.tscn" id="4_tpt06"]
 [ext_resource type="PackedScene" uid="uid://g0ihc1hfcixd" path="res://scenes/upgrades/upgrade_pickup.tscn" id="5_17a3a"]
-[ext_resource type="Script" uid="uid://b441oqduuovty" path="res://scenes/upgrades/attack_speed_upgrade.gd" id="6_16ffl"]
-[ext_resource type="Script" uid="uid://gjue8cwmb0fn" path="res://scenes/upgrades/burst_upgrade.gd" id="7_17a3a"]
+[ext_resource type="Resource" uid="uid://wffrw2wix5im" path="res://scenes/upgrades/attack_speed_upgrade.tres" id="6_m5lhb"]
+[ext_resource type="Resource" uid="uid://cwoipcmxihwr3" path="res://scenes/upgrades/burst_upgrade.tres" id="7_m5lhb"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="8_4b02c"]
+[ext_resource type="Resource" uid="uid://6n15s6um1ii3" path="res://scenes/upgrades/attack_range_upgrade.tres" id="8_qqy3k"]
 [ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="9_rvfw7"]
-
-[sub_resource type="Resource" id="Resource_17a3a"]
-script = ExtResource("6_16ffl")
-cooldown_reduction = 0.2
-upgrade_name = "+10 Attack Speed"
-metadata/_custom_type_script = "uid://b441oqduuovty"
-
-[sub_resource type="Resource" id="Resource_4b02c"]
-script = ExtResource("7_17a3a")
-upgrade_name = "2x bullet"
-metadata/_custom_type_script = "uid://gjue8cwmb0fn"
 
 [node name="Sandbox" type="Node2D" unique_id=331774593]
 script = ExtResource("1_rgld7")
@@ -108,11 +98,15 @@ max_health = 10000.0
 
 [node name="AttackSpeed" parent="." unique_id=539673170 instance=ExtResource("5_17a3a")]
 position = Vector2(146, 623)
-player_upgrade = SubResource("Resource_17a3a")
+player_upgrade = ExtResource("6_m5lhb")
 
 [node name="Burst" parent="." unique_id=1622087359 instance=ExtResource("5_17a3a")]
 position = Vector2(310, 620)
-player_upgrade = SubResource("Resource_4b02c")
+player_upgrade = ExtResource("7_m5lhb")
+
+[node name="AttackRange" parent="." unique_id=1780306213 instance=ExtResource("5_17a3a")]
+position = Vector2(32, 620)
+player_upgrade = ExtResource("8_qqy3k")
 
 [node name="Control" type="Control" parent="." unique_id=951341439]
 layout_mode = 3

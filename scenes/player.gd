@@ -7,12 +7,15 @@ var input_vector = Vector2.ZERO
 @onready var camera_2d: Camera2D = $Camera2D
 
 @export var max_health: float = 1000.0
+@export var health_regen: float = 0.0
 @export var move_speed: float = 300.0
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
 @export var attack_cooldown: float = 0.5
 @export var base_attack_cooldown: float = 0.5
+@export var base_damage: float = 10.0
 @export var range_percent: float = 0.9
+@export var vampirism: float = 0.0
 
 var burst_count: int = 1
 var attack_timer: float = 0.0
