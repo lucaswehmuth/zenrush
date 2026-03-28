@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://g0ihc1hfcixd" path="res://scenes/upgrades/upgrade_pickup.tscn" id="8_4mrxx"]
 [ext_resource type="Resource" uid="uid://cwoipcmxihwr3" path="res://scenes/upgrades/burst_upgrade.tres" id="9_7r4gi"]
 [ext_resource type="Resource" uid="uid://wffrw2wix5im" path="res://scenes/upgrades/attack_speed_upgrade.tres" id="10_w7kh3"]
+[ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="11_e3hyu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font_size = 32
@@ -156,3 +157,7 @@ player_upgrade = ExtResource("9_7r4gi")
 [node name="AttackSpeedPickup" parent="." unique_id=964040124 instance=ExtResource("8_4mrxx")]
 position = Vector2(268, 614)
 player_upgrade = ExtResource("10_w7kh3")
+
+[node name="OrbitingOrb" parent="." unique_id=592052180 instance=ExtResource("8_4mrxx")]
+position = Vector2(456, 623)
+player_upgrade = ExtResource("11_e3hyu")

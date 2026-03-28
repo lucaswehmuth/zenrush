@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b441oqduuovty" path="res://scenes/upgrades/attack_speed_upgrade.gd" id="6_16ffl"]
 [ext_resource type="Script" uid="uid://gjue8cwmb0fn" path="res://scenes/upgrades/burst_upgrade.gd" id="7_17a3a"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="8_4b02c"]
+[ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="9_rvfw7"]
 
 [sub_resource type="Resource" id="Resource_17a3a"]
 script = ExtResource("6_16ffl")
@@ -121,6 +122,10 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="TouchControls" parent="Control" unique_id=1929942516 instance=ExtResource("8_4b02c")]
+
+[node name="OrbitingOrb" parent="." unique_id=319920538 instance=ExtResource("5_17a3a")]
+position = Vector2(456, 623)
+player_upgrade = ExtResource("9_rvfw7")
 
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_back_button_button_up"]
