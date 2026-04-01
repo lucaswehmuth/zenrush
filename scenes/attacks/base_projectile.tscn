@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7v3urjvxrsgb" path="res://scenes/attacks/base_projectile.gd" id="1_8uhb8"]
 [ext_resource type="Texture2D" uid="uid://cn1p3fsbee106" path="res://assets/Circle.png" id="1_lsj14"]
+[ext_resource type="PackedScene" uid="uid://dckgbutbivbi6" path="res://scenes/effects/projectile_explosion.tscn" id="2_k5byx"]
 [ext_resource type="Script" uid="uid://b6eiee7g77d8k" path="res://classes/hitbox.gd" id="3_2af4p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2af4p"]
@@ -12,6 +13,7 @@ radius = 6.0
 
 [node name="BaseProjectile" type="Area2D" unique_id=1633631622]
 script = ExtResource("1_8uhb8")
+explosion_scene = ExtResource("2_k5byx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=926345134]
 scale = Vector2(0.1, 0.1)

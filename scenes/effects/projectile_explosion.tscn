@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dckgbutbivbi6"]
+
+[ext_resource type="Script" uid="uid://bmpka2vt12rda" path="res://scenes/effects/projectile_explosion.gd" id="1_i330q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdtu6"]
+radius = 88.051125
+
+[node name="ProjectileExplosion" type="Area2D" unique_id=352634018]
+collision_layer = 0
+script = ExtResource("1_i330q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=93586578]
+shape = SubResource("CircleShape2D_qdtu6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2008616663]
+emitting = false
+amount = 50
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 300.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0

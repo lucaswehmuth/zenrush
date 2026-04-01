@@ -37,6 +37,8 @@ func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
 	if attacker is BaseProjectile and attacker.shooter == "player":
 		take_damage(attacker.damage)
+		if attacker.explodes:
+			attacker._explode()
 		if attacker.pierce_count <= 0:
 			attacker.queue_free()
 		else:

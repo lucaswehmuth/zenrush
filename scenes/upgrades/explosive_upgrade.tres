@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ExplosiveUpgrade" format=3 uid="uid://fdd5t70uo65q"]
+
+[ext_resource type="Script" uid="uid://bdf3rm330fkwb" path="res://scenes/upgrades/explosive_upgrade.gd" id="1_w53k4"]
+
+[resource]
+script = ExtResource("1_w53k4")
+damage_multiplier = 0.5
+metadata/_custom_type_script = "uid://bdf3rm330fkwb"
