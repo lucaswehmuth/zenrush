@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_3owo4")
-upgrade_name = "2x bullet"
+upgrade_name = "Burst"
 metadata/_custom_type_script = "uid://gjue8cwmb0fn"

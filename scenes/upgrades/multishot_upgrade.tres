@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MultiShotUpgrade" format=3 uid="uid://bxbglhnordhpi"]
+
+[ext_resource type="Script" uid="uid://duwarhgc560w8" path="res://scenes/upgrades/multishot_upgrade.gd" id="1_0nvqs"]
+
+[resource]
+script = ExtResource("1_0nvqs")
+metadata/_custom_type_script = "uid://duwarhgc560w8"

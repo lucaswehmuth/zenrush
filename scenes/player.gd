@@ -18,6 +18,7 @@ var input_vector = Vector2.ZERO
 @export var vampirism: float = 0.0
 
 var burst_count: int = 1
+var extra_shots: int = 0
 var attack_timer: float = 0.0
 var current_health: float
 var is_dead: bool = false
@@ -101,10 +102,21 @@ func _shoot(target: BaseEnemy) -> void:
 func _fire_projectile(target: BaseEnemy) -> void:
 	if not projectile_scene:
 		return
+	var base_direction = (target.global_position - global_position).normalized()
+
+	# center shot
+	_spawn_projectile(base_direction)
+
+	# extra shots spread around center
+	for i in extra_shots:
+		var angle_offset = deg_to_rad(15.0 * (i + 1))
+		_spawn_projectile(base_direction.rotated(angle_offset))
+		_spawn_projectile(base_direction.rotated(-angle_offset))
+		
+func _spawn_projectile(direction: Vector2) -> void:
 	var projectile = projectile_scene.instantiate()
 	projectile.shooter = "player"
 	get_tree().current_scene.add_child(projectile)
-	var direction = (target.global_position - global_position).normalized()
 	projectile.init(global_position, direction)
 	for upgrade in projectile_upgrades:
 		upgrade.apply(projectile)

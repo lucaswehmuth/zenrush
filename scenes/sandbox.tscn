@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://su15mu6i7rcm" path="res://scenes/upgrades/piece_upgrade.tres" id="9_qqy3k"]
 [ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="9_rvfw7"]
 [ext_resource type="Resource" uid="uid://fdd5t70uo65q" path="res://scenes/upgrades/explosive_upgrade.tres" id="10_i1hvo"]
+[ext_resource type="Resource" uid="uid://bxbglhnordhpi" path="res://scenes/upgrades/multishot_upgrade.tres" id="11_cg56h"]
 
 [node name="Sandbox" type="Node2D" unique_id=331774593]
 script = ExtResource("1_rgld7")
@@ -128,6 +129,10 @@ projectile_upgrade = ExtResource("9_qqy3k")
 [node name="Explosive" parent="." unique_id=1420980405 instance=ExtResource("5_17a3a")]
 position = Vector2(42, 497)
 projectile_upgrade = ExtResource("10_i1hvo")
+
+[node name="Multishot" parent="." unique_id=270401071 instance=ExtResource("5_17a3a")]
+position = Vector2(40, 384)
+player_upgrade = ExtResource("11_cg56h")
 
 [node name="Control" type="Control" parent="." unique_id=951341439]
 layout_mode = 3
