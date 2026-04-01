@@ -23,6 +23,7 @@ var attack_timer: float = 0.0
 var current_health: float
 var is_dead: bool = false
 var shards : int = 0
+var shard_magnet: bool = false
 @export var projectile_upgrades: Array[BaseProjectileUpgrade] = []
 @export var player_upgrades: Array[BasePlayerUpgrade] = []
 
