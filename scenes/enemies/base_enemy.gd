@@ -57,6 +57,11 @@ func die() -> void:
 		shard.value = shard_value
 		shard.global_position = global_position
 		get_tree().root.add_child(shard)
+
+	var player = get_tree().get_first_node_in_group("player")
+	if player and player.vampirism > 0.0:
+		player.current_health = min(player.max_health, player.current_health + player.vampirism)
+		player.healthbar.health = player.current_health
 		
 	# emit signal, play death anim
 	died.emit(self)

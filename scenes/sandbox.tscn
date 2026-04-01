@@ -13,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="9_rvfw7"]
 [ext_resource type="Resource" uid="uid://fdd5t70uo65q" path="res://scenes/upgrades/explosive_upgrade.tres" id="10_i1hvo"]
 [ext_resource type="Resource" uid="uid://bxbglhnordhpi" path="res://scenes/upgrades/multishot_upgrade.tres" id="11_cg56h"]
+[ext_resource type="Resource" uid="uid://dljsk875k4cf2" path="res://scenes/upgrades/vampirism_upgrade.tres" id="14_r5tyk"]
+[ext_resource type="PackedScene" uid="uid://qlhsq328doj7" path="res://scenes/enemies/ranged_enemy.tscn" id="15_2d2mb"]
 
 [node name="Sandbox" type="Node2D" unique_id=331774593]
 script = ExtResource("1_rgld7")
@@ -115,7 +117,7 @@ position = Vector2(146, 623)
 player_upgrade = ExtResource("6_m5lhb")
 
 [node name="Burst" parent="." unique_id=1622087359 instance=ExtResource("5_17a3a")]
-position = Vector2(310, 620)
+position = Vector2(258, 623)
 player_upgrade = ExtResource("7_m5lhb")
 
 [node name="AttackRange" parent="." unique_id=1780306213 instance=ExtResource("5_17a3a")]
@@ -146,6 +148,14 @@ mouse_filter = 2
 [node name="OrbitingOrb" parent="." unique_id=319920538 instance=ExtResource("5_17a3a")]
 position = Vector2(456, 623)
 player_upgrade = ExtResource("9_rvfw7")
+
+[node name="Vampirism" parent="." unique_id=1379234722 instance=ExtResource("5_17a3a")]
+position = Vector2(363, 620)
+player_upgrade = ExtResource("14_r5tyk")
+
+[node name="RangedEnemy" parent="." unique_id=2081261772 instance=ExtResource("15_2d2mb")]
+position = Vector2(143, 197)
+move_speed = 0.0
 
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_back_button_button_up"]

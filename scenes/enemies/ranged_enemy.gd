@@ -15,7 +15,7 @@ var fire_timer: float = 0.0
 
 func _ready() -> void:
 	max_health = 60.0
-	move_speed = 60.0
+	#move_speed = 60.0
 	damage = 8.0
 	shard_value = 2
 	_cache_spawn_offset()

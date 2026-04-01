@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="VampirismUpgrade" format=3 uid="uid://dljsk875k4cf2"]
+
+[ext_resource type="Script" uid="uid://c5uskcooql4b3" path="res://scenes/upgrades/vampirism_upgrade.gd" id="1_ygfme"]
+
+[resource]
+script = ExtResource("1_ygfme")
+heal_per_kill = 100.0
