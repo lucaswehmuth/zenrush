@@ -7,6 +7,7 @@ extends Area2D
 @export var damage: float = 10.0
 @export var knockback_amount: float = 0.0
 
+var pierce_count: int = 0
 var shooter: String = ""
 
 var direction: Vector2 = Vector2.ZERO

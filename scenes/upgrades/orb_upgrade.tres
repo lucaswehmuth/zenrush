@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="OrbUpgrade" format=3 uid="uid://dh7qh5l2lhyw2"]
 
-[ext_resource type="Script" uid="uid://bva7p3k6x86vi" path="res://scenes/upgrades/orb_upgrade.gd" id="1_j2xta"]
+[ext_resource type="Script" path="res://scenes/upgrades/orb_upgrade.gd" id="1_j2xta"]
 [ext_resource type="PackedScene" uid="uid://dmth6p8wpkc3u" path="res://scenes/upgrades/orbital_orb.tscn" id="1_o5a02"]
 
 [resource]

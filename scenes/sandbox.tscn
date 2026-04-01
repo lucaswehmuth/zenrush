@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cwoipcmxihwr3" path="res://scenes/upgrades/burst_upgrade.tres" id="7_m5lhb"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="8_4b02c"]
 [ext_resource type="Resource" uid="uid://6n15s6um1ii3" path="res://scenes/upgrades/attack_range_upgrade.tres" id="8_qqy3k"]
+[ext_resource type="Resource" uid="uid://su15mu6i7rcm" path="res://scenes/upgrades/piece_upgrade.tres" id="9_qqy3k"]
 [ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="9_rvfw7"]
 
 [node name="Sandbox" type="Node2D" unique_id=331774593]
@@ -95,6 +96,17 @@ position = Vector2(245, 429)
 [node name="TankEnemy" parent="." unique_id=1388353835 instance=ExtResource("4_tpt06")]
 position = Vector2(243, 196)
 max_health = 10000.0
+move_speed = 0.0
+
+[node name="TankEnemy3" parent="." unique_id=2054717505 instance=ExtResource("4_tpt06")]
+position = Vector2(243.00002, 124)
+max_health = 10000.0
+move_speed = 0.0
+
+[node name="TankEnemy2" parent="." unique_id=432164627 instance=ExtResource("4_tpt06")]
+position = Vector2(242.00002, 261)
+max_health = 10000.0
+move_speed = 0.0
 
 [node name="AttackSpeed" parent="." unique_id=539673170 instance=ExtResource("5_17a3a")]
 position = Vector2(146, 623)
@@ -107,6 +119,10 @@ player_upgrade = ExtResource("7_m5lhb")
 [node name="AttackRange" parent="." unique_id=1780306213 instance=ExtResource("5_17a3a")]
 position = Vector2(32, 620)
 player_upgrade = ExtResource("8_qqy3k")
+
+[node name="Pierce" parent="." unique_id=1789595130 instance=ExtResource("5_17a3a")]
+position = Vector2(456, 491)
+projectile_upgrade = ExtResource("9_qqy3k")
 
 [node name="Control" type="Control" parent="." unique_id=951341439]
 layout_mode = 3

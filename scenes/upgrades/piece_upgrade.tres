@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PierceUpgrade" format=3 uid="uid://su15mu6i7rcm"]
+
+[ext_resource type="Script" uid="uid://ikqax2kjtlfk" path="res://scenes/upgrades/pierce_upgrade.gd" id="1_4pjkt"]
+
+[resource]
+script = ExtResource("1_4pjkt")
+metadata/_custom_type_script = "uid://ikqax2kjtlfk"

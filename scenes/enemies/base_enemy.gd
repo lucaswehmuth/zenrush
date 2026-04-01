@@ -37,7 +37,10 @@ func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
 	if attacker is BaseProjectile and attacker.shooter == "player":
 		take_damage(attacker.damage)
-		attacker.queue_free()
+		if attacker.pierce_count <= 0:
+			attacker.queue_free()
+		else:
+			attacker.pierce_count -= 1
 
 func take_damage(amount: float) -> void:
 	current_health -= amount

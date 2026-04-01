@@ -24,6 +24,5 @@ func _on_body_entered(body: Node2D) -> void:
 		picked_up.emit(player_upgrade.upgrade_name)
 	if projectile_upgrade:
 		body.projectile_upgrades.append(projectile_upgrade)
-		projectile_upgrade.apply(body)
 		picked_up.emit(projectile_upgrade.upgrade_name)
 	queue_free()
