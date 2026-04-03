@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bylp8ahut84bh"]
+
+[ext_resource type="Script" uid="uid://de23pv7asal7k" path="res://scenes/upgrades/upgrade_screen.gd" id="1_ch4gl"]
+
+[node name="UpgradeScreen" type="Control" unique_id=298215876]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ch4gl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=705371756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.3)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=118658072]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=641402590]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=813817303]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Choose an upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=2082432145]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Button1" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=231173695]
+custom_minimum_size = Vector2(180, 100)
+layout_mode = 2
+text = "Upgrade 1"
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=880734271]
+custom_minimum_size = Vector2(180, 100)
+layout_mode = 2
+text = "Upgrade 2"
