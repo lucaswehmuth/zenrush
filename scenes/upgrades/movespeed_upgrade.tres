@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MoveSpeedUpgrade" format=3 uid="uid://c151kli5i371w"]
+
+[ext_resource type="Script" uid="uid://c6ceg5w6w07ji" path="res://scenes/upgrades/movespeed_upgrade.gd" id="1_s0r8m"]
+
+[resource]
+script = ExtResource("1_s0r8m")
+metadata/_custom_type_script = "uid://c6ceg5w6w07ji"

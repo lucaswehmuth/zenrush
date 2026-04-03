@@ -4,6 +4,7 @@ extends BasePlayerUpgrade
 func _init() -> void:
 	upgrade_name = "Burst Damage"
 	description = "Add one extra projectile per shot"
+	category = BaseUpgrade.Category.ATTACK
 	
 func apply(player: Player) -> void:
 	player.burst_count += 1

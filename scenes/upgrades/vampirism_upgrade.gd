@@ -6,6 +6,7 @@ extends BasePlayerUpgrade
 func _init() -> void:
 	upgrade_name = "Vampirism"
 	description = "Heals on every enemy kill"
+	category = BaseUpgrade.Category.SPECIAL
 
 func apply(player: Player) -> void:
 	player.vampirism += heal_per_kill

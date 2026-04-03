@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://cwoipcmxihwr3" path="res://scenes/upgrades/burst_upgrade.tres" id="7_m5lhb"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="8_4b02c"]
 [ext_resource type="Resource" uid="uid://6n15s6um1ii3" path="res://scenes/upgrades/attack_range_upgrade.tres" id="8_qqy3k"]
-[ext_resource type="Resource" uid="uid://su15mu6i7rcm" path="res://scenes/upgrades/piece_upgrade.tres" id="9_qqy3k"]
+[ext_resource type="Resource" uid="uid://su15mu6i7rcm" path="res://scenes/upgrades/pierce_upgrade.tres" id="9_qqy3k"]
 [ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="9_rvfw7"]
 [ext_resource type="Script" uid="uid://kkhpxi4jrk8d" path="res://scenes/upgrades/shardmagnet_upgrade.gd" id="10_g7mfh"]
 [ext_resource type="Resource" uid="uid://fdd5t70uo65q" path="res://scenes/upgrades/explosive_upgrade.tres" id="10_i1hvo"]

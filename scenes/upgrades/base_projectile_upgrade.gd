@@ -1,9 +1,5 @@
 class_name BaseProjectileUpgrade
-extends Resource
-
-@export var upgrade_name: String = ""
-@export var description: String = ""
-@export var icon: Texture2D
+extends BaseUpgrade
 
 func apply(projectile: BaseProjectile) -> void:
 	pass

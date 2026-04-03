@@ -6,6 +6,7 @@ extends BasePlayerUpgrade
 func _init() -> void:
 	upgrade_name = "Attack Range"
 	description = "Increases auto-attack range"
+	category = BaseUpgrade.Category.ATTACK
 
 func apply(player: Player) -> void:
 	player.range_percent += range_percent_bonus

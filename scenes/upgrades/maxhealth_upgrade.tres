@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MaxHealthUpgrade" format=3 uid="uid://bmdst2kiwr0f7"]
+
+[ext_resource type="Script" uid="uid://dq8vcrdfjjdpw" path="res://scenes/upgrades/maxhealth_upgrade.gd" id="1_5kt8j"]
+
+[resource]
+script = ExtResource("1_5kt8j")
+metadata/_custom_type_script = "uid://dq8vcrdfjjdpw"

@@ -6,6 +6,7 @@ extends BasePlayerUpgrade
 func _init() -> void:
 	upgrade_name = "Max Health Up"
 	description = "Increases maximum health"
+	category = BaseUpgrade.Category.HP
 
 func apply(player: Player) -> void:
 	player.max_health += health_bonus

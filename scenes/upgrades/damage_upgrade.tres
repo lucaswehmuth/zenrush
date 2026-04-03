@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DamageUpgrade" format=3 uid="uid://d4h4ygn46d4h5"]
+
+[ext_resource type="Script" uid="uid://c3iyppgc3cwal" path="res://scenes/upgrades/damage_upgrade.gd" id="1_pyr1r"]
+
+[resource]
+script = ExtResource("1_pyr1r")
+metadata/_custom_type_script = "uid://c3iyppgc3cwal"

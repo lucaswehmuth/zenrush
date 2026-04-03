@@ -1,8 +1,5 @@
 class_name BasePlayerUpgrade
-extends Resource
-
-@export var upgrade_name: String = ""
-@export var description: String = ""
+extends BaseUpgrade
 
 func apply(player: Player) -> void:
 	pass

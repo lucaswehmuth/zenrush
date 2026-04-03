@@ -4,6 +4,11 @@ extends BasePlayerUpgrade
 @export var orb_scene: PackedScene
 @export var orb_count: int = 3
 
+func _init() -> void:
+	upgrade_name = "Orbiting orb"
+	description = "Orbs that inflict damage"
+	category = BaseUpgrade.Category.SPECIAL
+	
 func apply(player: Player) -> void:
 	for i in orb_count:
 		var orb = orb_scene.instantiate()

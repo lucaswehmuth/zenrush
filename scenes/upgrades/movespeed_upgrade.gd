@@ -6,6 +6,7 @@ extends BasePlayerUpgrade
 func _init() -> void:
 	upgrade_name = "Move Speed Up"
 	description = "Increases movement speed"
+	category = BaseUpgrade.Category.SPECIAL
 
 func apply(player: Player) -> void:
 	player.move_speed += speed_bonus

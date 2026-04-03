@@ -6,6 +6,7 @@ extends BasePlayerUpgrade
 func _init() -> void:
 	upgrade_name = "Health Regen"
 	description = "Regenerates health every second"
+	category = BaseUpgrade.Category.HP
 
 func apply(player: Player) -> void:
 	player.health_regen += regen_per_second

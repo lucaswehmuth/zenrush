@@ -6,6 +6,7 @@ extends BasePlayerUpgrade
 func _init() -> void:
 	upgrade_name = "Damage Up"
 	description = "Increases base damage"
+	category = BaseUpgrade.Category.ATTACK
 	
 func apply(player: Player) -> void:
 	player.base_damage += damage_bonus
