@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ShardMagnetUpgrade" format=3 uid="uid://jwp53s72rec3"]
+
+[ext_resource type="Script" uid="uid://kkhpxi4jrk8d" path="res://scenes/upgrades/shardmagnet_upgrade.gd" id="1_8e7nx"]
+
+[resource]
+script = ExtResource("1_8e7nx")
+metadata/_custom_type_script = "uid://kkhpxi4jrk8d"

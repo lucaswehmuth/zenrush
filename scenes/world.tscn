@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://202n68xmj3rx" path="res://scenes/components/save_manager.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://g0ihc1hfcixd" path="res://scenes/upgrades/upgrade_pickup.tscn" id="8_4mrxx"]
 [ext_resource type="Resource" uid="uid://cwoipcmxihwr3" path="res://scenes/upgrades/burst_upgrade.tres" id="9_7r4gi"]
-[ext_resource type="Resource" uid="uid://wffrw2wix5im" path="res://scenes/upgrades/attack_speed_upgrade.tres" id="10_w7kh3"]
+[ext_resource type="Resource" uid="uid://wffrw2wix5im" path="res://scenes/upgrades/attackspeed_upgrade.tres" id="10_w7kh3"]
 [ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="11_e3hyu"]
 [ext_resource type="Resource" uid="uid://fdd5t70uo65q" path="res://scenes/upgrades/explosive_upgrade.tres" id="12_q5onr"]
 

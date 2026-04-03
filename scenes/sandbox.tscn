@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c6pyec15v3but" path="res://assets/floor.png" id="4_j6lu3"]
 [ext_resource type="PackedScene" uid="uid://b2r4nrp2akbcj" path="res://scenes/enemies/tank_enemy.tscn" id="4_tpt06"]
 [ext_resource type="PackedScene" uid="uid://g0ihc1hfcixd" path="res://scenes/upgrades/upgrade_pickup.tscn" id="5_17a3a"]
-[ext_resource type="Resource" uid="uid://wffrw2wix5im" path="res://scenes/upgrades/attack_speed_upgrade.tres" id="6_m5lhb"]
+[ext_resource type="Resource" uid="uid://wffrw2wix5im" path="res://scenes/upgrades/attackspeed_upgrade.tres" id="6_m5lhb"]
 [ext_resource type="Resource" uid="uid://cwoipcmxihwr3" path="res://scenes/upgrades/burst_upgrade.tres" id="7_m5lhb"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="8_4b02c"]
-[ext_resource type="Resource" uid="uid://6n15s6um1ii3" path="res://scenes/upgrades/attack_range_upgrade.tres" id="8_qqy3k"]
+[ext_resource type="Resource" uid="uid://6n15s6um1ii3" path="res://scenes/upgrades/attackrange_upgrade.tres" id="8_qqy3k"]
 [ext_resource type="Resource" uid="uid://su15mu6i7rcm" path="res://scenes/upgrades/pierce_upgrade.tres" id="9_qqy3k"]
 [ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="9_rvfw7"]
 [ext_resource type="Script" uid="uid://kkhpxi4jrk8d" path="res://scenes/upgrades/shardmagnet_upgrade.gd" id="10_g7mfh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://bxbglhnordhpi" path="res://scenes/upgrades/multishot_upgrade.tres" id="11_cg56h"]
 [ext_resource type="Resource" uid="uid://dljsk875k4cf2" path="res://scenes/upgrades/vampirism_upgrade.tres" id="14_r5tyk"]
 [ext_resource type="PackedScene" uid="uid://qlhsq328doj7" path="res://scenes/enemies/ranged_enemy.tscn" id="15_2d2mb"]
+[ext_resource type="PackedScene" uid="uid://cv1ew04lblibr" path="res://scenes/upgrades/upgrade_manager.tscn" id="17_8b5lh"]
 
 [sub_resource type="Resource" id="Resource_8b5lh"]
 script = ExtResource("10_g7mfh")
@@ -165,6 +166,8 @@ player_upgrade = ExtResource("14_r5tyk")
 [node name="RangedEnemy" parent="." unique_id=2081261772 instance=ExtResource("15_2d2mb")]
 position = Vector2(143, 197)
 move_speed = 0.0
+
+[node name="UpgradeManager" parent="." unique_id=1453017438 instance=ExtResource("17_8b5lh")]
 
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_back_button_button_up"]

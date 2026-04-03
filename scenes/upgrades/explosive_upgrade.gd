@@ -7,6 +7,7 @@ extends BaseProjectileUpgrade
 func _init() -> void:
 	upgrade_name = "Explosive"
 	description = "Projectiles explode on impact"
+	category = BaseUpgrade.Category.SPECIAL
 
 func apply(projectile: BaseProjectile) -> void:
 	projectile.explodes = true
