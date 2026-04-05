@@ -1,4 +1,3 @@
-class_name UpgradeScreen
 extends Control
 
 signal upgrade_chosen(upgrade: BaseUpgrade)
@@ -6,7 +5,9 @@ signal upgrade_chosen(upgrade: BaseUpgrade)
 @onready var button_1: Button = $PanelContainer/VBoxContainer/HBoxContainer/Button1
 @onready var button_2: Button = $PanelContainer/VBoxContainer/HBoxContainer/Button2
 
+
 func _ready() -> void:
+	print_tree_pretty()
 	hide()
 	button_1.pressed.connect(_on_button_1_pressed)
 	button_2.pressed.connect(_on_button_2_pressed)

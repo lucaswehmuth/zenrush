@@ -2,16 +2,13 @@
 
 [ext_resource type="Script" uid="uid://l437ng1mcgho" path="res://scenes/world.gd" id="1_71j4m"]
 [ext_resource type="Texture2D" uid="uid://c6pyec15v3but" path="res://assets/floor.png" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://bylp8ahut84bh" path="res://scenes/upgrades/upgrade_screen.tscn" id="2_o8fc1"]
 [ext_resource type="Script" uid="uid://cw4s6v43328cs" path="res://scenes/components/death_screen.gd" id="2_qfnet"]
 [ext_resource type="PackedScene" uid="uid://mdel8ixxul36" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://brh4u1738kw7f" path="res://scenes/enemies/spawn_manager.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://202n68xmj3rx" path="res://scenes/components/save_manager.tscn" id="7_i7141"]
-[ext_resource type="PackedScene" uid="uid://g0ihc1hfcixd" path="res://scenes/upgrades/upgrade_pickup.tscn" id="8_4mrxx"]
-[ext_resource type="Resource" uid="uid://cwoipcmxihwr3" path="res://scenes/upgrades/burst_upgrade.tres" id="9_7r4gi"]
-[ext_resource type="Resource" uid="uid://wffrw2wix5im" path="res://scenes/upgrades/attackspeed_upgrade.tres" id="10_w7kh3"]
-[ext_resource type="Resource" uid="uid://dh7qh5l2lhyw2" path="res://scenes/upgrades/orb_upgrade.tres" id="11_e3hyu"]
-[ext_resource type="Resource" uid="uid://fdd5t70uo65q" path="res://scenes/upgrades/explosive_upgrade.tres" id="12_q5onr"]
+[ext_resource type="PackedScene" uid="uid://cv1ew04lblibr" path="res://scenes/upgrades/upgrade_manager.tscn" id="9_o8fc1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font_size = 32
@@ -31,6 +28,9 @@ size_flags_horizontal = 4
 text = "Timer"
 label_settings = SubResource("LabelSettings_k0juu")
 horizontal_alignment = 1
+
+[node name="UpgradeScreen" parent="CanvasLayer" unique_id=298215876 instance=ExtResource("2_o8fc1")]
+visible = false
 
 [node name="DeathScreen" type="Control" parent="CanvasLayer" unique_id=1148446738]
 visible = false
@@ -151,18 +151,4 @@ mouse_filter = 2
 
 [node name="SaveManager" parent="." unique_id=1392442018 instance=ExtResource("7_i7141")]
 
-[node name="BurstPickup" parent="." unique_id=539673170 instance=ExtResource("8_4mrxx")]
-position = Vector2(148, 615)
-player_upgrade = ExtResource("9_7r4gi")
-
-[node name="AttackSpeedPickup" parent="." unique_id=964040124 instance=ExtResource("8_4mrxx")]
-position = Vector2(268, 614)
-player_upgrade = ExtResource("10_w7kh3")
-
-[node name="OrbitingOrb" parent="." unique_id=592052180 instance=ExtResource("8_4mrxx")]
-position = Vector2(456, 623)
-player_upgrade = ExtResource("11_e3hyu")
-
-[node name="Explosive" parent="." unique_id=1972043902 instance=ExtResource("8_4mrxx")]
-position = Vector2(42, 497)
-projectile_upgrade = ExtResource("12_q5onr")
+[node name="UpgradeManager" parent="." unique_id=1453017438 instance=ExtResource("9_o8fc1")]

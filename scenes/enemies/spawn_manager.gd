@@ -1,6 +1,8 @@
 class_name SpawnManager
 extends Node2D
 
+signal upgrade_available
+
 @onready var timer_label: Label = $"../CanvasLayer/TimerLabel"
 
 @export var base_enemy_scene: PackedScene
@@ -15,6 +17,7 @@ const RUN_DURATION: float = 600.0
 const SAFE_RADIUS: float = 150.0 
 
 var elapsed_time: float = 0.0
+var next_upgrade_time: float = 0.0
 var difficulty: float = 0.0
 var active_enemies: Array[BaseEnemy] = []
 var spawn_timer: float = 0.0
@@ -39,6 +42,12 @@ func _process(delta: float) -> void:
 	difficulty = elapsed_time / RUN_DURATION
 	_update_timer_label()
 
+	if elapsed_time >= next_upgrade_time:
+		next_upgrade_time += 60.0
+		print("upgrade_available emitted")
+		upgrade_available.emit()
+		return
+		
 	if elapsed_time >= RUN_DURATION:
 		stop_run()
 		return

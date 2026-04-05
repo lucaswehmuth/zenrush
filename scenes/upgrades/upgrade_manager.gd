@@ -1,5 +1,5 @@
 class_name UpgradeManager
-extends Node
+extends Node2D
 
 const OFFERS_COUNT: int = 2
 
