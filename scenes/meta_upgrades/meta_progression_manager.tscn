@@ -4,3 +4,4 @@
 
 [node name="MetaProgressionManager" type="Node2D" unique_id=1070979280]
 script = ExtResource("1_ubgdk")
+upgrades_path = null

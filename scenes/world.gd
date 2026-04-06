@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player: Player = $Player
 @onready var spawn_manager: SpawnManager = $SpawnManager
-@onready var save_manager: SaveManager = $SaveManager
+#@onready var save_manager: SaveManager = $SaveManager
 @onready var touch_controls: CanvasLayer = $Control/TouchControls
 @onready var quit_button: Button = $CanvasLayer/MarginContainer/QuitButton
 @onready var upgrade_manager: UpgradeManager = $UpgradeManager
@@ -17,20 +17,18 @@ func _ready() -> void:
 	spawn_manager.upgrade_available.connect(_on_upgrade_available)
 	spawn_manager.run_completed.connect(_on_run_completed)
 	upgrade_screen.upgrade_chosen.connect(_on_upgrade_chosen)
-	print(meta_progression_manager.get_meta_stats())
-	meta_progression_manager.purchase("damage")
-	meta_progression_manager.purchase("damage")
+	print("meta stats:")
 	print(meta_progression_manager.get_meta_stats())
 
 func _on_run_completed() -> void:
 	var shards_earned = int(player.shards * player.completion_bonus_multiplier)
-	save_manager.add_shards(shards_earned)
+	Save.add_shards(shards_earned)
 	spawn_manager.stop_run()
 	touch_controls.hide()
 	player.set_physics_process(false)
 	player.hide()
 	quit_button.hide()
-	end_screen.show_end(spawn_manager.elapsed_time, spawn_manager.enemies_killed, shards_earned, save_manager.total_shards, true, player.completion_bonus_multiplier)
+	end_screen.show_end(spawn_manager.elapsed_time, spawn_manager.enemies_killed, shards_earned, Save.total_shards, true, player.completion_bonus_multiplier)
 	
 func _on_upgrade_available() -> void:
 	var offers = upgrade_manager.get_upgrade_offers()
@@ -48,10 +46,10 @@ func _on_upgrade_chosen(upgrade: BaseUpgrade) -> void:
 	get_tree().paused = false
 
 func _on_player_died() -> void:
-	save_manager.add_shards(player.shards)
+	Save.add_shards(player.shards)
 	spawn_manager.stop_run()
 	touch_controls.hide()
-	end_screen.show_end(spawn_manager.elapsed_time, spawn_manager.enemies_killed, player.shards, save_manager.total_shards, false)
+	end_screen.show_end(spawn_manager.elapsed_time, spawn_manager.enemies_killed, player.shards, Save.total_shards, false)
 
 func _on_quit() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

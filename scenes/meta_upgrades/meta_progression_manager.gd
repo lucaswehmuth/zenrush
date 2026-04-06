@@ -11,6 +11,12 @@ var levels: Dictionary = {}          # id -> current level
 func _ready() -> void:
 	load_all_upgrades()
 	initialize_levels()
+	# LOAD FROM SAVE
+	var saved_levels = Save.get_meta_levels()
+
+	for id in saved_levels.keys():
+		if upgrades.has(id):
+			levels[id] = saved_levels[id]
 
 func load_all_upgrades() -> void:
 	upgrades.clear()
@@ -76,6 +82,7 @@ func purchase(id: String) -> void:
 		return
 
 	levels[id] += 1
+	Save.set_meta_levels(levels)
 
 func get_meta_stats() -> Dictionary:
 	var stats: Dictionary = {}

@@ -1,12 +1,12 @@
 extends Control
 
-@onready var save_manager: SaveManager = $SaveManager
+#@onready var save_manager: SaveManager = $SaveManager
 @onready var total_shards_label: Label = $CanvasLayer/CenterContainer/VBoxContainer/TotalShardsLabel
 @onready var play_button: Button = $CanvasLayer/CenterContainer/VBoxContainer/PlayButton
 @onready var sandbox_button: Button = $CanvasLayer/CenterContainer/VBoxContainer/SandboxButton
 
 func _ready() -> void:
-	total_shards_label.text = "Shards: %d" % save_manager.total_shards
+	total_shards_label.text = "Shards: %d" % Save.total_shards
 	play_button.pressed.connect(_on_play)
 	play_button.button_up.connect(_on_play_up)
 	sandbox_button.pressed.connect(_on_sandbox)

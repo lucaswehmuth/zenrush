@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://mdel8ixxul36" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://brh4u1738kw7f" path="res://scenes/enemies/spawn_manager.tscn" id="4_k0juu"]
-[ext_resource type="PackedScene" uid="uid://202n68xmj3rx" path="res://scenes/components/save_manager.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" path="res://scenes/upgrades/upgrade_manager.tscn" id="9_o8fc1"]
 [ext_resource type="Script" uid="uid://c831fa37c22qc" path="res://scenes/meta_upgrades/meta_progression_manager.gd" id="10_w7kh3"]
 
@@ -149,8 +148,6 @@ mouse_filter = 2
 [node name="TouchControls" parent="Control" unique_id=1929942516 instance=ExtResource("3_4wyf3")]
 
 [node name="SpawnManager" parent="." unique_id=1928806202 instance=ExtResource("4_k0juu")]
-
-[node name="SaveManager" parent="." unique_id=1392442018 instance=ExtResource("7_i7141")]
 
 [node name="UpgradeManager" parent="." unique_id=1453017438 instance=ExtResource("9_o8fc1")]
 

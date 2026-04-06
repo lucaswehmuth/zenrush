@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://vs8fn0dxe4vx"]
 
 [ext_resource type="Script" uid="uid://bq5qykmu72c8c" path="res://scenes/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="PackedScene" uid="uid://202n68xmj3rx" path="res://scenes/components/save_manager.tscn" id="2_ekxnf"]
 
 [node name="MainMenu" type="Control" unique_id=73339726]
 layout_mode = 3
@@ -54,5 +53,3 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 action_mode = 0
 text = "Sandbox"
-
-[node name="SaveManager" parent="." unique_id=1392442018 instance=ExtResource("2_ekxnf")]
