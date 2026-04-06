@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://l437ng1mcgho" path="res://scenes/world.gd" id="1_71j4m"]
 [ext_resource type="Texture2D" uid="uid://c6pyec15v3but" path="res://assets/floor.png" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bylp8ahut84bh" path="res://scenes/upgrades/upgrade_screen.tscn" id="2_o8fc1"]
-[ext_resource type="Script" uid="uid://cw4s6v43328cs" path="res://scenes/components/death_screen.gd" id="2_qfnet"]
+[ext_resource type="Script" uid="uid://cw4s6v43328cs" path="res://scenes/components/end_screen.gd" id="2_qfnet"]
 [ext_resource type="PackedScene" uid="uid://mdel8ixxul36" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://brh4u1738kw7f" path="res://scenes/enemies/spawn_manager.tscn" id="4_k0juu"]
@@ -32,7 +32,7 @@ horizontal_alignment = 1
 [node name="UpgradeScreen" parent="CanvasLayer" unique_id=298215876 instance=ExtResource("2_o8fc1")]
 visible = false
 
-[node name="DeathScreen" type="Control" parent="CanvasLayer" unique_id=1148446738]
+[node name="EndScreen" type="Control" parent="CanvasLayer" unique_id=1148446738]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -43,7 +43,7 @@ grow_vertical = 2
 size_flags_vertical = 4
 script = ExtResource("2_qfnet")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DeathScreen" unique_id=45264116]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/EndScreen" unique_id=45264116]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,13 +53,13 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.70000005)
 
-[node name="TextLabel" type="Label" parent="CanvasLayer/DeathScreen" unique_id=1456104330]
+[node name="TitleLabel" type="Label" parent="CanvasLayer/EndScreen" unique_id=1456104330]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.4
+anchor_top = 0.3
 anchor_right = 0.5
-anchor_bottom = 0.4
+anchor_bottom = 0.3
 offset_left = -110.0
 offset_top = -34.600006
 offset_right = 110.0
@@ -71,7 +71,7 @@ text = "You Died."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatsLabel" type="Label" parent="CanvasLayer/DeathScreen" unique_id=1953059540]
+[node name="StatsLabel" type="Label" parent="CanvasLayer/EndScreen" unique_id=1953059540]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -85,7 +85,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RestartButton" type="Button" parent="CanvasLayer/DeathScreen" unique_id=1535838765]
+[node name="RestartButton" type="Button" parent="CanvasLayer/EndScreen" unique_id=1535838765]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 1
 anchors_preset = -1
@@ -97,7 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play again"
 
-[node name="MenuButton" type="Button" parent="CanvasLayer/DeathScreen" unique_id=2029780809]
+[node name="MenuButton" type="Button" parent="CanvasLayer/EndScreen" unique_id=2029780809]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 1
 anchors_preset = -1

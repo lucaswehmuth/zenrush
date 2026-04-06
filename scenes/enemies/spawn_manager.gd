@@ -2,6 +2,7 @@ class_name SpawnManager
 extends Node2D
 
 signal upgrade_available
+signal run_completed
 
 @onready var timer_label: Label = $"../CanvasLayer/TimerLabel"
 
@@ -11,13 +12,13 @@ signal upgrade_available
 @export var tank_scene: PackedScene
 
 ## Total game run time in seconds - 10 minutes
-const RUN_DURATION: float = 600.0  
+const RUN_DURATION: float = 600.0
 
 ## Minimum distance from the player at which enemies are allowed to spawn. 
 const SAFE_RADIUS: float = 150.0 
 
 var elapsed_time: float = 0.0
-var next_upgrade_time: float = 0.0
+var next_upgrade_time: float = 1.0
 var difficulty: float = 0.0
 var active_enemies: Array[BaseEnemy] = []
 var spawn_timer: float = 0.0
@@ -143,9 +144,13 @@ func _get_spawn_position() -> Vector2:
 	return pos
 
 func stop_run() -> void:
+	if not run_active:
+		return
+		
 	run_active = false
 	for enemy in active_enemies:
 		if is_instance_valid(enemy):
 			enemy.queue_free()
 	active_enemies.clear()
 	print("Run complete - elapsed: ", elapsed_time)
+	run_completed.emit()

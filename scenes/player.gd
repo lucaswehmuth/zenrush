@@ -6,6 +6,7 @@ var input_vector = Vector2.ZERO
 @onready var healthbar: HealthBar = $Healthbar
 @onready var camera_2d: Camera2D = $Camera2D
 
+@export var completion_bonus_multiplier: float = 1.5
 @export var max_health: float = 1000.0
 @export var health_regen: float = 0.0
 @export var move_speed: float = 300.0

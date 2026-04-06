@@ -56,14 +56,14 @@ func die() -> void:
 		var shard = shard_scene.instantiate()
 		shard.value = shard_value
 		shard.global_position = global_position
-		get_tree().current_scene.add_child(shard)
 		if player and player.shard_magnet:
-			shard.attract()
-
+			shard._attract_on_ready = true
+		get_tree().current_scene.add_child.call_deferred(shard)
+		
 	if player and player.vampirism > 0.0:
 		player.current_health = min(player.max_health, player.current_health + player.vampirism)
 		player.healthbar.health = player.current_health
 		
 	# emit signal, play death anim
 	died.emit(self)
-	queue_free()
+	queue_free.call_deferred()
