@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://blvdl5aiop8r1"]
+
+[ext_resource type="Script" uid="uid://c831fa37c22qc" path="res://scenes/meta_upgrades/meta_progression_manager.gd" id="1_ubgdk"]
+
+[node name="MetaProgressionManager" type="Node2D" unique_id=1070979280]
+script = ExtResource("1_ubgdk")

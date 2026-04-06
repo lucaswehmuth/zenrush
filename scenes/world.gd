@@ -7,6 +7,7 @@ extends Node2D
 @onready var quit_button: Button = $CanvasLayer/MarginContainer/QuitButton
 @onready var upgrade_manager: UpgradeManager = $UpgradeManager
 @onready var upgrade_screen: Control = $CanvasLayer/UpgradeScreen
+@onready var meta_progression_manager: MetaProgressionManager = $MetaProgressionManager
 @onready var end_screen: Control = $CanvasLayer/EndScreen
 
 
@@ -16,6 +17,10 @@ func _ready() -> void:
 	spawn_manager.upgrade_available.connect(_on_upgrade_available)
 	spawn_manager.run_completed.connect(_on_run_completed)
 	upgrade_screen.upgrade_chosen.connect(_on_upgrade_chosen)
+	print(meta_progression_manager.get_meta_stats())
+	meta_progression_manager.purchase("damage")
+	meta_progression_manager.purchase("damage")
+	print(meta_progression_manager.get_meta_stats())
 
 func _on_run_completed() -> void:
 	var shards_earned = int(player.shards * player.completion_bonus_multiplier)

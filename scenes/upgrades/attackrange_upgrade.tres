@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttackRangeUpgrade" format=3 uid="uid://6n15s6um1ii3"]
 
-[ext_resource type="Script" path="res://scenes/upgrades/attack_range_upgrade.gd" id="1_wxh3o"]
+[ext_resource type="Script" uid="uid://86x6bn74audj" path="res://scenes/upgrades/attack_range_upgrade.gd" id="1_wxh3o"]
 
 [resource]
 script = ExtResource("1_wxh3o")
