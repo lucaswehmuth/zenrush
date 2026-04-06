@@ -73,17 +73,35 @@ func can_purchase(id: String, currency: int) -> bool:
 	var cost = get_upgrade_cost(id)
 	return currency >= cost
 
-func purchase(id: String) -> void:
+func purchase(id: String) -> bool:
 	if not upgrades.has(id):
 		push_error("Invalid upgrade id: " + id)
-		return
+		return false
 
 	if is_max_level(id):
-		return
+		print("already maxed out")
+		return false
 
+	var cost = get_upgrade_cost(id)
+
+	if Save.total_shards < cost:
+		print("not enough shards")
+		return false
+
+	Save.total_shards -= cost
 	levels[id] += 1
 	Save.set_meta_levels(levels)
+	Save.save_game()
 
+	return true
+
+func get_level(id: String) -> int:
+	return levels.get(id, 0)
+	
+func get_cost(id: String) -> int:
+	var level = get_level(id)
+	return int(20 * pow(1.5, level))  # or whatever you're using
+	
 func get_meta_stats() -> Dictionary:
 	var stats: Dictionary = {}
 
