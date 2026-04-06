@@ -22,7 +22,6 @@ func _ready() -> void:
 	health_bar.init(max_health)
 
 func _physics_process(delta: float) -> void:
-	#print("MOVING:", self)
 	if player:
 		_move(delta)
 	move_and_slide()
@@ -47,7 +46,6 @@ func _on_hurt(hitbox: Hitbox) -> void:
 func take_damage(amount: float) -> void:
 	current_health -= amount
 	health_bar.health = current_health
-	print(self, "Took damage - health:", current_health)
 	if current_health <= 0.0:
 		die()
 

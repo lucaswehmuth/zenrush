@@ -31,7 +31,6 @@ var shard_magnet: bool = false
 signal died
 
 func _ready() -> void:
-	print("Player groups:", get_groups())
 	get_tree().get_root().print_tree_pretty()
 	current_health = max_health
 	healthbar.init(max_health)
@@ -56,7 +55,6 @@ func _get_camera_rect() -> Rect2:
 	
 func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
-	print(attacker)
 	if attacker is BaseEnemy:
 		take_damage(attacker.damage)
 	

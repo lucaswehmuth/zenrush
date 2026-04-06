@@ -14,7 +14,6 @@ func _ready() -> void:
 			continue
 		var enemy = area.get_parent()
 		if enemy.is_in_group("enemy"):
-			print("exploding damage=", damage)
 			enemy.take_damage(damage)
 	await get_tree().create_timer(0.5).timeout
 	queue_free()

@@ -11,11 +11,14 @@ signal run_completed
 @export var ranged_scene: PackedScene
 @export var tank_scene: PackedScene
 
+const MINIMUM_ENEMIES: int = 3
+const MAXIMUM_ENEMIES: int = 100
+
 ## Total game run time in seconds - 10 minutes
 const RUN_DURATION: float = 600.0
 
 ## Minimum distance from the player at which enemies are allowed to spawn. 
-const SAFE_RADIUS: float = 150.0 
+const SAFE_RADIUS: float = 150.0
 
 var elapsed_time: float = 0.0
 var next_upgrade_time: float = 1.0
@@ -25,8 +28,13 @@ var spawn_timer: float = 0.0
 var run_active: bool = false
 var enemies_killed: int = 0
 
+## Distance to start dropping enemies that are too far off from player
+var _max_enemy_distance: float = 0.0
+
 
 func _ready() -> void:
+	var screen_size = get_viewport_rect().size
+	_max_enemy_distance = screen_size.length() * 1.5
 	start_run()
 
 func start_run() -> void:
@@ -46,6 +54,8 @@ func _process(delta: float) -> void:
 	if elapsed_time >= next_upgrade_time:
 		next_upgrade_time += 60.0
 		print("upgrade_available emitted")
+		print("dropping enemies that are too far from player")
+		_drop_distant_enemies()
 		upgrade_available.emit()
 		return
 		
@@ -57,6 +67,23 @@ func _process(delta: float) -> void:
 	if spawn_timer <= 0.0:
 		_spawn_enemy()
 		spawn_timer = _get_spawn_interval()
+
+func _get_max_enemy_distance() -> float:
+	var screen_size = get_viewport_rect().size
+	var screen_diagonal = screen_size.length()
+	return screen_diagonal * 1.5
+	
+func _drop_distant_enemies() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	if not player:
+		return
+	var max_distance = _get_max_enemy_distance()
+	for enemy in active_enemies.duplicate():
+		if not is_instance_valid(enemy):
+			continue
+		if enemy.global_position.distance_to(player.global_position) > max_distance:
+			active_enemies.erase(enemy)
+			enemy.queue_free()
 
 func _update_timer_label() -> void:
 	var remaining = RUN_DURATION - elapsed_time
@@ -70,7 +97,7 @@ func _get_spawn_interval() -> float:
 
 func _get_max_enemies() -> int:
 	# starts at 3, caps at 20 at full difficulty
-	return int(lerp(3.0, 20.0, difficulty))
+	return int(lerp(MINIMUM_ENEMIES, MAXIMUM_ENEMIES, difficulty))
 
 func _spawn_enemy() -> void:
 	if active_enemies.size() >= _get_max_enemies():
