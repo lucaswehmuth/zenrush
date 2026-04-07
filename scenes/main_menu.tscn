@@ -47,6 +47,13 @@ theme_override_font_sizes/font_size = 24
 action_mode = 0
 text = "Play"
 
+[node name="UpgradesButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer" unique_id=1774156233]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Upgrades"
+
 [node name="SandboxButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer" unique_id=1754921470]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2

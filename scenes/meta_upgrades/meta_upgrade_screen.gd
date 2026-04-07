@@ -2,11 +2,16 @@ extends Control
 
 @onready var upgrade_list = $RootVBox/UpgradeList
 @onready var meta_progression_manager: MetaProgressionManager = $MetaProgressionManager
+@onready var back_button: Button = $RootVBox/BackButton
 
 const UPGRADE_ITEM_SCENE = preload("res://scenes/meta_upgrades/meta_upgrade_item.tscn")
 
 func _ready() -> void:
 	populate()
+	back_button.pressed.connect(_on_back)
+
+func _on_back() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func populate() -> void:
 	for child in upgrade_list.get_children():
