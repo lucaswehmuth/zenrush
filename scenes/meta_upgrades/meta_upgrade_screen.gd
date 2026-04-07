@@ -4,9 +4,6 @@ extends Control
 @onready var meta_progression_manager: MetaProgressionManager = $MetaProgressionManager
 
 const UPGRADE_ITEM_SCENE = preload("res://scenes/meta_upgrades/meta_upgrade_item.tscn")
-const UPGRADES = [
-	preload("res://scenes/meta_upgrades/damage_meta_upgrade.tres")
-]
 
 func _ready() -> void:
 	populate()
@@ -14,21 +11,16 @@ func _ready() -> void:
 func populate() -> void:
 	for child in upgrade_list.get_children():
 		child.queue_free()
-
-	for upgrade in UPGRADES:
+		
+	for id in meta_progression_manager.upgrades.keys():
+		var upgrade: MetaUpgrade = meta_progression_manager.upgrades[id]
 		var item = UPGRADE_ITEM_SCENE.instantiate()
 		upgrade_list.add_child(item)
-
-		var _id: String = upgrade.id
-		var _name: String = upgrade.name
-
-		var _level: int = meta_progression_manager.get_level(_id)
-		var _cost: int = meta_progression_manager.get_cost(_id)
-		var shards: int = Save.total_shards
-
-		var can_afford: bool = shards >= _cost
-
-		item.setup(_id, _name, _level, _cost, can_afford)
+		var _level: int = meta_progression_manager.get_level(id)
+		var _cost: int = meta_progression_manager.get_cost(id)
+		var is_maxed: bool = meta_progression_manager.is_max_level(id)
+		var can_afford: bool = Save.total_shards >= _cost and not is_maxed
+		item.setup(id, upgrade.name, _level, _cost, can_afford, is_maxed)
 		item.buy_pressed.connect(_on_item_buy_pressed)
 
 func _on_item_buy_pressed(id: String) -> void:

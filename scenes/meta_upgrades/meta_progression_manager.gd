@@ -1,10 +1,14 @@
 extends Node2D
 class_name MetaProgressionManager
 
+# stat_key maps to Player property names (e.g. "base_damage", "move_speed").
+# Applied at run start via get_meta_stats() → Player.apply_meta_stats().
 @export var upgrades_path: String = "res://scenes/meta_upgrades/"
 
-var base_cost: int = 10
-var growth: float = 2.0
+# Cost curve: base_cost * growth^(level-1). At level 1: 10, level 2: 20, level 3: 40, etc.
+const BASE_COST: int = 10
+const COST_GROWTH: float = 2.0
+
 var upgrades: Dictionary = {}        # id -> MetaUpgrade
 var levels: Dictionary = {}          # id -> current level
 
@@ -51,13 +55,14 @@ func initialize_levels() -> void:
 		if not levels.has(id):
 			levels[id] = 0
 
-func get_cost_for_level(level: int) -> int:
-	return int(base_cost * pow(growth, level - 1))
-
-func get_upgrade_cost(id: String) -> int:
+func get_cost(id: String) -> int:
 	var current_level: int = levels.get(id, 0)
 	var next_level: int = current_level + 1
 	return get_cost_for_level(next_level)
+
+# The formula. Only called by get_cost.
+func get_cost_for_level(level: int) -> int:
+	return int(BASE_COST * pow(COST_GROWTH, level - 1))
 
 func get_max_level(id: String) -> int:
 	var upgrade: MetaUpgrade = upgrades[id]
@@ -70,7 +75,7 @@ func can_purchase(id: String, currency: int) -> bool:
 	if is_max_level(id):
 		return false
 
-	var cost = get_upgrade_cost(id)
+	var cost = get_cost(id)
 	return currency >= cost
 
 func purchase(id: String) -> bool:
@@ -82,7 +87,7 @@ func purchase(id: String) -> bool:
 		print("already maxed out")
 		return false
 
-	var cost = get_upgrade_cost(id)
+	var cost = get_cost(id)
 
 	if Save.total_shards < cost:
 		print("not enough shards")
@@ -97,10 +102,6 @@ func purchase(id: String) -> bool:
 
 func get_level(id: String) -> int:
 	return levels.get(id, 0)
-	
-func get_cost(id: String) -> int:
-	var level = get_level(id)
-	return int(20 * pow(1.5, level))  # or whatever you're using
 	
 func get_meta_stats() -> Dictionary:
 	var stats: Dictionary = {}

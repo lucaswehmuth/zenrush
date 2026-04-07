@@ -9,12 +9,16 @@ signal buy_pressed(upgrade_id: String)
 
 var upgrade_id: String
 
-func setup(id: String, name: String, level: int, cost: int, can_afford: bool) -> void:
+func setup(id: String, p_name: String, level: int, cost: int, can_afford: bool, is_maxed: bool) -> void:
 	upgrade_id = id
-	name_label.text = name
+	name_label.text = p_name
 	level_label.text = "Level %d" % level
-	cost_label.text = str(cost)
-	buy_button.disabled = not can_afford
+	if is_maxed:
+		cost_label.text = "MAX"
+		buy_button.disabled = true
+	else:
+		cost_label.text = str(cost)
+		buy_button.disabled = not can_afford
 
 func _ready() -> void:
 	buy_button.pressed.connect(_on_buy_pressed)

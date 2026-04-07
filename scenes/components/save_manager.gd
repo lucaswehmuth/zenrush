@@ -8,6 +8,8 @@ var meta_levels: Dictionary = {}   # id -> level
 
 func _ready() -> void:
 	load_game()
+	if OS.is_debug_build():
+		total_shards = 9999
 
 func add_shards(amount: int) -> void:
 	total_shards += amount
