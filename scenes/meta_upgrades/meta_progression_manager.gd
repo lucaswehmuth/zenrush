@@ -1,9 +1,9 @@
 extends Node2D
 class_name MetaProgressionManager
 
-# stat_key maps to Player property names (e.g. "base_damage", "move_speed").
+# player_stat_key maps to Player property names (e.g. "base_damage", "move_speed").
 # Applied at run start via get_meta_stats() → Player.apply_meta_stats().
-@export var upgrades_path: String = "res://scenes/meta_upgrades/"
+@export var upgrades_path: String = "res://scenes/meta_upgrades/resources/"
 
 # Cost curve: base_cost * growth^(level-1). At level 1: 10, level 2: 20, level 3: 40, etc.
 const BASE_COST: int = 10

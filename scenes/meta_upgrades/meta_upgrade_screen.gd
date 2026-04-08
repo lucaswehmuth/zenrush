@@ -1,6 +1,6 @@
 extends Control
 
-@onready var upgrade_list = $RootVBox/UpgradeList
+@onready var upgrade_list: HFlowContainer = $RootVBox/ScrollContainer/UpgradeList
 @onready var meta_progression_manager: MetaProgressionManager = $MetaProgressionManager
 @onready var back_button: Button = $RootVBox/BackButton
 
