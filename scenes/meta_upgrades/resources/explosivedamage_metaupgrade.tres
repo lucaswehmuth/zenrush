@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://c6v4m3ody8q68"]
+
+[ext_resource type="Script" uid="uid://d3xh378k4k6ec" path="res://scenes/meta_upgrades/meta_requirement.gd" id="1_jm1va"]
+[ext_resource type="Script" uid="uid://dtpb6piw15wde" path="res://scenes/meta_upgrades/meta_upgrade.gd" id="2_j4aag"]
+
+[sub_resource type="Resource" id="Resource_jm1va"]
+script = ExtResource("1_jm1va")
+required_upgrade_id = "explosive_radius"
+required_level = 3
+metadata/_custom_type_script = "uid://d3xh378k4k6ec"
+
+[resource]
+script = ExtResource("2_j4aag")
+id = "explosive_damage"
+name = "Explosive Damage"
+description = "Increases explosion damage multiplier"
+values_per_level = Array[float]([0.1, 0.2, 0.3, 0.4, 0.5])
+player_stat_key = "attack_explosion_damage_multiplier"
+requirements = Array[ExtResource("1_jm1va")]([SubResource("Resource_jm1va")])
+metadata/_custom_type_script = "uid://dtpb6piw15wde"

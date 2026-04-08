@@ -13,6 +13,8 @@ var input_vector = Vector2.ZERO
 @export var projectile_scene: PackedScene
 @export var attack_range: float = 300.0
 @export var attack_cooldown: float = 0.5
+@export var attack_explosion_radius: float = 0.0
+@export var attack_explosion_damage_multiplier: float = 0.2
 @export var base_attack_cooldown: float = 0.5
 @export var base_damage: float = 10.0
 @export var range_percent: float = 0.9
@@ -119,7 +121,7 @@ func _spawn_projectile(direction: Vector2) -> void:
 	get_tree().current_scene.add_child(projectile)
 	projectile.init(global_position, direction)
 	for upgrade in projectile_upgrades:
-		upgrade.apply(projectile)
+		upgrade.apply(projectile, self)
 	
 func _get_dynamic_range() -> float:
 	var screen_size = _get_screen_size_world()

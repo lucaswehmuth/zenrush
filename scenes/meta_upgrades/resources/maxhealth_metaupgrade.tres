@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://cblxpxo0bkmq7"]
+
+[ext_resource type="Script" uid="uid://d3xh378k4k6ec" path="res://scenes/meta_upgrades/meta_requirement.gd" id="1_xqmmu"]
+[ext_resource type="Script" uid="uid://dtpb6piw15wde" path="res://scenes/meta_upgrades/meta_upgrade.gd" id="2_kvqas"]
+
+[resource]
+script = ExtResource("2_kvqas")
+id = "max_health"
+name = "Max HP"
+description = "Increases maximum health"
+values_per_level = Array[float]([50.0, 75.0, 100.0, 150.0, 200.0])
+player_stat_key = "max_health"
+metadata/_custom_type_script = "uid://dtpb6piw15wde"

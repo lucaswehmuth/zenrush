@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://bgk3om6y1fv1n"]
+
+[ext_resource type="Script" uid="uid://d3xh378k4k6ec" path="res://scenes/meta_upgrades/meta_requirement.gd" id="1_n6dbo"]
+[ext_resource type="Script" uid="uid://dtpb6piw15wde" path="res://scenes/meta_upgrades/meta_upgrade.gd" id="2_7clrk"]
+
+[sub_resource type="Resource" id="Resource_n6dbo"]
+script = ExtResource("1_n6dbo")
+required_upgrade_id = "health_regen"
+required_level = 3
+metadata/_custom_type_script = "uid://d3xh378k4k6ec"
+
+[resource]
+script = ExtResource("2_7clrk")
+id = "vampirism"
+name = "Vampirism"
+description = "Increases health gained per kill"
+values_per_level = Array[float]([3.0, 5.0, 8.0, 10.0, 15.0])
+player_stat_key = "vampirism"
+requirements = Array[ExtResource("1_n6dbo")]([SubResource("Resource_n6dbo")])
+metadata/_custom_type_script = "uid://dtpb6piw15wde"

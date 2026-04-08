@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://cavgpryc4dw2q"]
+
+[ext_resource type="Script" uid="uid://d3xh378k4k6ec" path="res://scenes/meta_upgrades/meta_requirement.gd" id="1_3bvp4"]
+[ext_resource type="Script" uid="uid://dtpb6piw15wde" path="res://scenes/meta_upgrades/meta_upgrade.gd" id="2_7vopq"]
+
+[sub_resource type="Resource" id="Resource_xgme3"]
+script = ExtResource("1_3bvp4")
+required_upgrade_id = "attack_range"
+required_level = 3
+metadata/_custom_type_script = "uid://d3xh378k4k6ec"
+
+[resource]
+script = ExtResource("2_7vopq")
+id = "explosive_radius"
+name = "Explosive Radius"
+description = "Increases projectile explosion radius"
+values_per_level = Array[float]([20.0, 30.0, 40.0, 50.0, 70.0])
+player_stat_key = "attack_explosion_radius"
+requirements = Array[ExtResource("1_3bvp4")]([SubResource("Resource_xgme3")])
+metadata/_custom_type_script = "uid://dtpb6piw15wde"

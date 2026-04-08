@@ -105,34 +105,19 @@ func get_level(id: String) -> int:
 	
 func get_meta_stats() -> Dictionary:
 	var stats: Dictionary = {}
-
 	for id in upgrades.keys():
 		var level: int = levels.get(id, 0)
 		if level <= 0:
 			continue
-
+			
 		var upgrade: MetaUpgrade = upgrades[id]
-
-		# --- STRICT VALIDATION ---
-		if upgrade.stat_key == "":
-			push_error("MetaUpgrade missing stat_key: " + upgrade.id)
+		if upgrade.player_stat_key == "" or upgrade.values_per_level.is_empty() or level > upgrade.values_per_level.size():
+			push_error("MetaUpgrade misconfigured: " + upgrade.id)
 			continue
-
-		if upgrade.values_per_level.is_empty():
-			push_error("MetaUpgrade has no values_per_level: " + upgrade.id)
-			continue
-
-		if level > upgrade.values_per_level.size():
-			push_error("Level exceeds values_per_level size for: " + upgrade.id)
-			continue
-		# ------------------------
-
-		var value: float = upgrade.values_per_level[level - 1]
-		var key: String = upgrade.stat_key
-
+			
+		var key: String = upgrade.player_stat_key
 		if not stats.has(key):
 			stats[key] = 0.0
-
-		stats[key] += value
-
+		stats[key] += upgrade.values_per_level[level - 1]
+		
 	return stats

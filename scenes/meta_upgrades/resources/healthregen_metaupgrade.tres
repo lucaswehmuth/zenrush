@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://r2q1oy7shog3"]
+
+[ext_resource type="Script" uid="uid://d3xh378k4k6ec" path="res://scenes/meta_upgrades/meta_requirement.gd" id="1_n6xf7"]
+[ext_resource type="Script" uid="uid://dtpb6piw15wde" path="res://scenes/meta_upgrades/meta_upgrade.gd" id="2_70hqa"]
+
+[resource]
+script = ExtResource("2_70hqa")
+id = "health_regen"
+name = "Health Regen"
+description = "Increases health regeneratino per second"
+values_per_level = Array[float]([0.5, 1.0, 1.5, 2.0, 3.0])
+player_stat_key = "health_regen"
+metadata/_custom_type_script = "uid://dtpb6piw15wde"

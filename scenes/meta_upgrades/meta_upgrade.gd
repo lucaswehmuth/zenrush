@@ -11,6 +11,6 @@ enum Category { SURVIVAL, ATTACK, FORTUNE }
 @export var category: Category
 
 @export var values_per_level: Array[float] = []
-@export var stat_key: String
+@export var player_stat_key: String
 
 @export var requirements: Array[MetaRequirement] = []

@@ -8,5 +8,5 @@ func _init() -> void:
 	description = "Projectiles pierce through enemies"
 	category = BaseUpgrade.Category.SPECIAL
 
-func apply(projectile: BaseProjectile) -> void:
+func apply(projectile: BaseProjectile, player: Player) -> void:
 	projectile.pierce_count += pierce_bonus
