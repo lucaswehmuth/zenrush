@@ -11,13 +11,12 @@ var input_vector = Vector2.ZERO
 @export var health_regen: float = 0.0
 @export var move_speed: float = 300.0
 @export var projectile_scene: PackedScene
-@export var attack_range: float = 300.0
+@export var attack_range_percent: float = 0.9
 @export var attack_cooldown: float = 0.5
 @export var attack_explosion_radius: float = 0.0
 @export var attack_explosion_damage_multiplier: float = 0.2
 @export var base_attack_cooldown: float = 0.5
 @export var base_damage: float = 10.0
-@export var range_percent: float = 0.9
 @export var vampirism: float = 0.0
 
 var burst_count: int = 1
@@ -33,13 +32,35 @@ var shard_magnet: bool = false
 signal died
 
 func _ready() -> void:
-	get_tree().get_root().print_tree_pretty()
+	#get_tree().get_root().print_tree_pretty()
 	current_health = max_health
 	healthbar.init(max_health)
 	hurtbox.hurt.connect(_on_hurt)
 	for upgrade in player_upgrades:
 		upgrade.apply(self)
-	print("Final attack cooldown: ", attack_cooldown)
+		
+func apply_meta_stats(stats: Dictionary) -> void:
+	for key in stats.keys():
+		if key in self:
+			set(key, get(key) + stats[key])
+		else:
+			push_warning("apply_meta_stats: unknown key '%s'" % key)
+	current_health = max_health
+	healthbar.init(max_health)
+	_debug_print_stats()
+
+func _debug_print_stats() -> void:
+	print("=== PLAYER META STATS ===")
+	print("max_health: ", max_health)
+	print("health_regen: ", health_regen)
+	print("vampirism: ", vampirism)
+	print("move_speed: ", move_speed)
+	print("base_damage: ", base_damage)
+	print("attack_cooldown: ", attack_cooldown)
+	print("attack_range_percent: ", attack_range_percent)
+	print("explosion_radius: ", attack_explosion_radius)
+	print("explosion_damage_multiplier: ", attack_explosion_damage_multiplier)
+	print("=========================")
 	
 func _draw():
 	draw_circle(Vector2.ZERO, _get_dynamic_range(), Color(0, 0, 0, 0.05))
@@ -129,7 +150,7 @@ func _get_dynamic_range() -> float:
 	# use diagonal or smaller axis (both are valid approaches)
 	var radius = min(screen_size.x, screen_size.y) * 0.5
 	
-	return radius * range_percent
+	return radius * attack_range_percent
 	
 func _get_nearest_enemy() -> BaseEnemy:
 	var enemies = get_tree().get_nodes_in_group("enemy")

@@ -17,8 +17,7 @@ func _ready() -> void:
 	spawn_manager.upgrade_available.connect(_on_upgrade_available)
 	spawn_manager.run_completed.connect(_on_run_completed)
 	upgrade_screen.upgrade_chosen.connect(_on_upgrade_chosen)
-	print("meta stats:")
-	print(meta_progression_manager.get_meta_stats())
+	player.apply_meta_stats(meta_progression_manager.get_meta_stats())
 
 func _on_run_completed() -> void:
 	var shards_earned = int(player.shards * player.completion_bonus_multiplier)

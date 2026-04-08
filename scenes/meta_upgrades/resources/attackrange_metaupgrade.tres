@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://c12it1hghbr8l"]
 
-[ext_resource type="Script" uid="uid://d3xh378k4k6ec" path="res://scenes/meta_upgrades/meta_requirement.gd" id="1_js5cl"]
-[ext_resource type="Script" uid="uid://dtpb6piw15wde" path="res://scenes/meta_upgrades/meta_upgrade.gd" id="2_xjwqs"]
+[ext_resource type="Script" uid="uid://d3xh378k4k6ec" path="res://scenes/meta_upgrades/meta_requirement.gd" id="1_gmlve"]
+[ext_resource type="Script" uid="uid://dtpb6piw15wde" path="res://scenes/meta_upgrades/meta_upgrade.gd" id="2_vjhyo"]
 
 [resource]
-script = ExtResource("2_xjwqs")
+script = ExtResource("2_vjhyo")
 id = "attack_range"
 name = "Attack Range"
 description = "Increases attack range"
 category = 1
-values_per_level = Array[float]([30.0, 40.0, 50.0, 60.0, 80.0])
-player_stat_key = "attack_range"
+values_per_level = Array[float]([0.1, 0.2, 0.3, 0.4, 0.5])
+player_stat_key = "attack_range_percent"
 metadata/_custom_type_script = "uid://dtpb6piw15wde"
