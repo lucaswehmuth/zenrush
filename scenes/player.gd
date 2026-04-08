@@ -141,6 +141,12 @@ func _spawn_projectile(direction: Vector2) -> void:
 	projectile.shooter = "player"
 	get_tree().current_scene.add_child(projectile)
 	projectile.init(global_position, direction)
+	
+	if attack_explosion_radius > 0:
+		projectile.explodes = true
+		projectile.explosion_radius = attack_explosion_radius
+		projectile.explosion_damage_multiplier = attack_explosion_damage_multiplier
+		
 	for upgrade in projectile_upgrades:
 		upgrade.apply(projectile, self)
 	
