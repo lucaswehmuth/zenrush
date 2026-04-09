@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://m0uxhr5cn3dc"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_l7mfa"]
+[ext_resource type="Script" uid="uid://dnuq4fauf8ty4" path="res://scenes/enemies/splitter_enemy.gd" id="2_25l6g"]
+
+[node name="SplitterEnemy" unique_id=1388353835 instance=ExtResource("1_l7mfa")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_25l6g")
+split_count = 2
+split_into = 2
+scale_per_tier = 0.8
+drop_shards_on_split = false
+max_health = 100.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.18342704, 0.43884733, 0.6065928, 1)
