@@ -74,9 +74,17 @@ func is_max_level(id: String) -> bool:
 func can_purchase(id: String, currency: int) -> bool:
 	if is_max_level(id):
 		return false
-
+	if not meets_requirements(id):
+		return false
 	var cost = get_cost(id)
 	return currency >= cost
+
+func meets_requirements(id: String) -> bool:
+	var upgrade: MetaUpgrade = upgrades[id]
+	for req in upgrade.requirements:
+		if levels.get(req.required_upgrade_id, 0) < req.required_level:
+			return false
+	return true
 
 func purchase(id: String) -> bool:
 	if not upgrades.has(id):
