@@ -86,6 +86,16 @@ func meets_requirements(id: String) -> bool:
 			return false
 	return true
 
+func get_requirement_text(id: String) -> String:
+	var upgrade: MetaUpgrade = upgrades[id]
+	var parts: Array = []
+	for req in upgrade.requirements:
+		var req_upgrade: MetaUpgrade = upgrades.get(req.required_upgrade_id)
+		var req_name: String = req_upgrade.name if req_upgrade else req.required_upgrade_id
+		parts.append("Requires:\n")
+		parts.append("%s Lv%d" % [req_name, req.required_level])
+	return " + ".join(parts)
+
 func purchase(id: String) -> bool:
 	if not upgrades.has(id):
 		push_error("Invalid upgrade id: " + id)

@@ -9,17 +9,19 @@ signal buy_pressed(upgrade_id: String)
 
 var upgrade_id: String
 
-func setup(id: String, p_name: String, level: int, cost: int, can_afford: bool, is_maxed: bool, is_locked: bool) -> void:
+func setup(id: String, p_name: String, level: int, cost: int, can_afford: bool, is_maxed: bool, is_locked: bool, req_text: String = "") -> void:
 	upgrade_id = id
 	name_label.text = p_name
-	level_label.text = "Level %d" % level
 	if is_locked:
+		level_label.text = req_text
 		cost_label.text = "LOCKED"
 		buy_button.disabled = true
 	elif is_maxed:
+		level_label.text = "Level %d" % level
 		cost_label.text = "MAX"
 		buy_button.disabled = true
 	else:
+		level_label.text = "Level %d" % level
 		cost_label.text = str(cost)
 		buy_button.disabled = not can_afford
 

@@ -31,6 +31,7 @@ horizontal_alignment = 1
 
 [node name="Level" type="Label" parent="MarginContainer/Row/Top" unique_id=132963489]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Level 0"
 horizontal_alignment = 1
 

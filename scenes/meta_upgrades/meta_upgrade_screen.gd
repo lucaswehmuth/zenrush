@@ -26,7 +26,8 @@ func populate() -> void:
 		var is_maxed: bool = meta_progression_manager.is_max_level(id)
 		var can_afford: bool = Save.total_shards >= _cost and not is_maxed
 		var is_locked: bool = not meta_progression_manager.meets_requirements(id)
-		item.setup(id, upgrade.name, _level, _cost, can_afford, is_maxed, is_locked)
+		var req_text: String = meta_progression_manager.get_requirement_text(id) if is_locked else ""
+		item.setup(id, upgrade.name, _level, _cost, can_afford, is_maxed, is_locked, req_text)
 		item.buy_pressed.connect(_on_item_buy_pressed)
 
 func _on_item_buy_pressed(id: String) -> void:
