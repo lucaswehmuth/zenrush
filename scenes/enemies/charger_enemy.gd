@@ -3,7 +3,7 @@ extends BaseEnemy
 
 enum State { TRACKING, WINDUP, CHARGING, COOLDOWN }
 
-const SCALE_NORMAL: Vector2 = Vector2(0.5, 0.5)
+const SCALE_NORMAL: Vector2 = Vector2(1.0, 1.0)
 const SCALE_WINDUP: Vector2 = Vector2(0.25, 0.25)
 
 @export var charge_speed: float = 280.0

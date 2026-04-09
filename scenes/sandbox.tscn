@@ -176,7 +176,7 @@ position = Vector2(373, 196)
 move_speed = 0.0
 
 [node name="BlasterEnemy" parent="." unique_id=885777882 instance=ExtResource("19_yc6dp")]
-position = Vector2(573, 198)
+position = Vector2(371, 280)
 
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_back_button_button_up"]

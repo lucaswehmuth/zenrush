@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cv1ew04lblibr" path="res://scenes/upgrades/upgrade_manager.tscn" id="9_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://m0uxhr5cn3dc" path="res://scenes/enemies/splitter_enemy.tscn" id="10_e3hyu"]
 [ext_resource type="Script" uid="uid://c831fa37c22qc" path="res://scenes/meta_upgrades/meta_progression_manager.gd" id="10_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://bf05f5je3ahu3" path="res://scenes/enemies/charger_enemy.tscn" id="11_q5onr"]
+[ext_resource type="PackedScene" uid="uid://bblbelrlbnvsk" path="res://scenes/enemies/blaster_enemy.tscn" id="12_jhx03"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font_size = 32
@@ -159,3 +161,9 @@ metadata/_custom_type_script = "uid://c831fa37c22qc"
 [node name="SplitterEnemy" parent="." unique_id=1388353835 instance=ExtResource("10_e3hyu")]
 position = Vector2(264, 171)
 drop_shards_on_split = true
+
+[node name="ChargerEnemy" parent="." unique_id=1225269065 instance=ExtResource("11_q5onr")]
+position = Vector2(429, 345)
+
+[node name="BlasterEnemy" parent="." unique_id=1168154931 instance=ExtResource("12_jhx03")]
+position = Vector2(55, 264)

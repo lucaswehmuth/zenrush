@@ -16,7 +16,7 @@ func _ready() -> void:
 	super()
 	var shape = _hurtbox_shape.shape
 	if shape is CircleShape2D:
-		_spawn_offset = shape.radius / 2.0
+		_spawn_offset = shape.radius * scale.x + 10.0
 	elif shape is RectangleShape2D:
 		_spawn_offset = shape.size.length() / 2.0
 
@@ -47,7 +47,7 @@ func _shoot() -> void:
 		projectile.shooter = "enemy"
 		get_tree().root.add_child(projectile)
 		projectile.init(global_position + direction * _spawn_offset, direction, projectile_speed, Color.HOT_PINK)
-
+	
 func _is_on_screen() -> bool:
 	var camera = get_viewport().get_camera_2d()
 	var screen_rect = get_viewport_rect()
