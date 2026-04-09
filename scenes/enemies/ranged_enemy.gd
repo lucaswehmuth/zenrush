@@ -14,17 +14,13 @@ var _projectile_spawn_offset: float = 0.0
 var fire_timer: float = 0.0
 
 func _ready() -> void:
-	max_health = 60.0
-	#move_speed = 60.0
-	damage = 8.0
-	shard_value = 2
 	_cache_spawn_offset()
 	super()
 	
 func _cache_spawn_offset() -> void:
 	var shape = _hurtbox_shape.shape
 	if shape is CircleShape2D:
-		_projectile_spawn_offset = shape.radius
+		_projectile_spawn_offset = shape.radius / 2.0
 	elif shape is RectangleShape2D:
 		_projectile_spawn_offset = shape.size.length() / 2.0
 

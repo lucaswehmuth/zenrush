@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bblbelrlbnvsk"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_sgs0b"]
+[ext_resource type="Script" uid="uid://e8hv7fw20gvy" path="res://scenes/enemies/blaster_enemy.gd" id="2_fa2ul"]
+[ext_resource type="PackedScene" uid="uid://bbwmjpb5q3yv" path="res://scenes/attacks/base_projectile.tscn" id="3_wkoxn"]
+
+[node name="BlasterEnemy" unique_id=1388353835 instance=ExtResource("1_sgs0b")]
+script = ExtResource("2_fa2ul")
+projectile_scene = ExtResource("3_wkoxn")
+projectile_speed = 120.0
+fire_cooldown = 2.5
+preferred_distance = 280.0
+shot_count = 8
+max_health = 100.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.43324625, 0.00013062685, 0.43324324, 1)
