@@ -5,6 +5,7 @@ signal died(enemy: BaseEnemy)
 
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var health_bar: HealthBar = $HealthBar
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var max_health: float = 100.0
 @export var move_speed: float = 80.0

@@ -24,7 +24,7 @@ const BOSS_SPAWN_TIME: float = RUN_DURATION - 60.0
 const SAFE_RADIUS: float = 150.0
 
 var elapsed_time: float = 0.0
-var next_upgrade_time: float = 1.0
+var next_upgrade_time: float = 30.0
 var difficulty: float = 0.0
 var active_enemies: Array[BaseEnemy] = []
 var spawn_timer: float = 0.0

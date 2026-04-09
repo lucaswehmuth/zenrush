@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cw4s6v43328cs" path="res://scenes/components/end_screen.gd" id="3_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://brh4u1738kw7f" path="res://scenes/enemies/spawn_manager.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://cv1ew04lblibr" path="res://scenes/upgrades/upgrade_manager.tscn" id="9_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://bf05f5je3ahu3" path="res://scenes/enemies/charger_enemy.tscn" id="10_e3hyu"]
 [ext_resource type="Script" uid="uid://c831fa37c22qc" path="res://scenes/meta_upgrades/meta_progression_manager.gd" id="10_w7kh3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
@@ -154,3 +155,6 @@ mouse_filter = 2
 [node name="MetaProgressionManager" type="Node2D" parent="." unique_id=1903707351]
 script = ExtResource("10_w7kh3")
 metadata/_custom_type_script = "uid://c831fa37c22qc"
+
+[node name="ChargerEnemy" parent="." unique_id=1388353835 instance=ExtResource("10_e3hyu")]
+position = Vector2(113, 173)

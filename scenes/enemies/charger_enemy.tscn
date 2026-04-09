@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bf05f5je3ahu3"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_sbthj"]
+[ext_resource type="Script" uid="uid://cwwec58logwdu" path="res://scenes/enemies/charger_enemy.gd" id="2_cpxnj"]
+
+[node name="ChargerEnemy" unique_id=1388353835 instance=ExtResource("1_sbthj")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_cpxnj")
+charge_speed = 500.0
+charge_duration = 0.6
+windup_duration = 0.5
+cooldown_duration = 2.0
+charge_damage_multiplier = 2.0
+charge_trigger_range = 800.0
+max_health = 500.0
+move_speed = 60.0
+damage = 50.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.2369943, 2.5419052e-07, 7.821247e-08, 1)
