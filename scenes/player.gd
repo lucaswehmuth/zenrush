@@ -112,6 +112,9 @@ func _physics_process(delta: float) -> void:
 			_shoot(target)
 			attack_timer = attack_cooldown
 	move_and_slide()
+	if health_regen > 0.0 and current_health < max_health:
+		current_health = minf(current_health + health_regen * delta, max_health)
+		healthbar.health = current_health
 
 func _shoot(target: BaseEnemy) -> void:
 	for i in burst_count:
