@@ -10,12 +10,15 @@ signal run_completed
 @export var rusher_scene: PackedScene
 @export var ranged_scene: PackedScene
 @export var tank_scene: PackedScene
+@export var boss_scene: PackedScene
 
 const MINIMUM_ENEMIES: int = 3
 const MAXIMUM_ENEMIES: int = 100
 
 ## Total game run time in seconds - 10 minutes
-const RUN_DURATION: float = 600.0
+const RUN_DURATION: float = 70.0
+
+const BOSS_SPAWN_TIME: float = RUN_DURATION - 60.0
 
 ## Minimum distance from the player at which enemies are allowed to spawn. 
 const SAFE_RADIUS: float = 150.0
@@ -27,10 +30,10 @@ var active_enemies: Array[BaseEnemy] = []
 var spawn_timer: float = 0.0
 var run_active: bool = false
 var enemies_killed: int = 0
+var boss_spawned: bool = false
 
 ## Distance to start dropping enemies that are too far off from player
 var _max_enemy_distance: float = 0.0
-
 
 func _ready() -> void:
 	var screen_size = get_viewport_rect().size
@@ -43,26 +46,31 @@ func start_run() -> void:
 	run_active = true
 	_spawn_enemy()
 
+func _spawn_boss() -> void:
+	if not boss_scene:
+		push_error("SpawnManager: boss_scene not set")
+		return
+	var boss = boss_scene.instantiate()
+	boss.global_position = _get_spawn_position()
+	get_tree().current_scene.add_child(boss)
+	
 func _process(delta: float) -> void:
 	if not run_active:
 		return
-
 	elapsed_time += delta
 	difficulty = elapsed_time / RUN_DURATION
 	_update_timer_label()
-
 	if elapsed_time >= next_upgrade_time:
 		next_upgrade_time += 60.0
-		print("upgrade_available emitted")
-		print("dropping enemies that are too far from player")
 		_drop_distant_enemies()
 		upgrade_available.emit()
 		return
-		
+	if not boss_spawned and elapsed_time >= BOSS_SPAWN_TIME:
+		boss_spawned = true
+		_spawn_boss()
 	if elapsed_time >= RUN_DURATION:
 		stop_run()
 		return
-
 	spawn_timer -= delta
 	if spawn_timer <= 0.0:
 		_spawn_enemy()

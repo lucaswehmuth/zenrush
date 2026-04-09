@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://dljsk875k4cf2" path="res://scenes/upgrades/vampirism_upgrade.tres" id="14_r5tyk"]
 [ext_resource type="PackedScene" uid="uid://qlhsq328doj7" path="res://scenes/enemies/ranged_enemy.tscn" id="15_2d2mb"]
 [ext_resource type="PackedScene" uid="uid://cv1ew04lblibr" path="res://scenes/upgrades/upgrade_manager.tscn" id="17_8b5lh"]
+[ext_resource type="PackedScene" uid="uid://blana2tfvync" path="res://scenes/enemies/boss_enemy.tscn" id="18_hc7ve"]
 
 [sub_resource type="Resource" id="Resource_8b5lh"]
 script = ExtResource("10_g7mfh")
@@ -168,6 +169,9 @@ position = Vector2(143, 197)
 move_speed = 0.0
 
 [node name="UpgradeManager" parent="." unique_id=1453017438 instance=ExtResource("17_8b5lh")]
+
+[node name="BossEnemy" parent="." unique_id=242373823 instance=ExtResource("18_hc7ve")]
+position = Vector2(330, 197)
 
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_back_button_button_up"]

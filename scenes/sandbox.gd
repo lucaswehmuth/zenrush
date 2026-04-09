@@ -29,7 +29,7 @@ func _update_stats() -> void:
 		player.max_health,
 		player.move_speed,
 		snappedf(player.attack_cooldown, 0.01),
-		player.range_percent,
+		player.attack_range_percent,
 		player.burst_count
 	]
 

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://blana2tfvync"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_t3oiy"]
+[ext_resource type="Script" uid="uid://58bw0ru0n4ma" path="res://scenes/enemies/boss_enemy.gd" id="2_ciwj1"]
+
+[node name="BossEnemy" unique_id=1388353835 instance=ExtResource("1_t3oiy")]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("2_ciwj1")
+shard_drop_count = 40
+shard_drop_radius = 40.0
+max_health = 1000.0
+move_speed = 100.0
+damage = 30.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.11882782, 0.21369085, 0.68359375, 1)
+
+[node name="Hitbox" parent="." index="2" unique_id=1940046434]
+visible = false
+
+[node name="Hurtbox" parent="." index="3" unique_id=411529934]
+visible = false

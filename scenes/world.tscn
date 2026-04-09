@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bylp8ahut84bh" path="res://scenes/upgrades/upgrade_screen.tscn" id="2_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://mdel8ixxul36" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://daxcmrm16wjij" path="res://scenes/touch_controls.tscn" id="3_4wyf3"]
+[ext_resource type="Script" uid="uid://cw4s6v43328cs" path="res://scenes/components/end_screen.gd" id="3_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://brh4u1738kw7f" path="res://scenes/enemies/spawn_manager.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://cv1ew04lblibr" path="res://scenes/upgrades/upgrade_manager.tscn" id="9_o8fc1"]
 [ext_resource type="Script" uid="uid://c831fa37c22qc" path="res://scenes/meta_upgrades/meta_progression_manager.gd" id="10_w7kh3"]
@@ -40,6 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
+script = ExtResource("3_7r4gi")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/EndScreen" unique_id=45264116]
 layout_mode = 1

@@ -9,5 +9,5 @@ func _init() -> void:
 	category = BaseUpgrade.Category.ATTACK
 
 func apply(player: Player) -> void:
-	player.range_percent += range_percent_bonus
+	player.attack_range_percent += range_percent_bonus
 	player.queue_redraw()

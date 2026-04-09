@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b2r4nrp2akbcj" path="res://scenes/enemies/tank_enemy.tscn" id="2_olvqc"]
 [ext_resource type="PackedScene" uid="uid://dfkftjbbr1py7" path="res://scenes/enemies/rusher_enemy.tscn" id="3_12nki"]
 [ext_resource type="PackedScene" uid="uid://qlhsq328doj7" path="res://scenes/enemies/ranged_enemy.tscn" id="3_s4lw7"]
+[ext_resource type="PackedScene" uid="uid://blana2tfvync" path="res://scenes/enemies/boss_enemy.tscn" id="6_12nki"]
 
 [node name="SpawnManager" type="Node2D" unique_id=1928806202]
 script = ExtResource("1_ax8qu")
@@ -12,3 +13,4 @@ base_enemy_scene = ExtResource("2_2o7eo")
 rusher_scene = ExtResource("3_12nki")
 ranged_scene = ExtResource("3_s4lw7")
 tank_scene = ExtResource("2_olvqc")
+boss_scene = ExtResource("6_12nki")
