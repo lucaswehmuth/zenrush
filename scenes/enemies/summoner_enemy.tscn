@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://8m5babdfw6ol"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_iy43l"]
+[ext_resource type="Script" uid="uid://3ssq4yt65ryb" path="res://scenes/enemies/summoner_enemy.gd" id="2_8c6u1"]
+[ext_resource type="PackedScene" uid="uid://dfkftjbbr1py7" path="res://scenes/enemies/rusher_enemy.tscn" id="3_2hx34"]
+
+[node name="SummonerEnemy" unique_id=1388353835 instance=ExtResource("1_iy43l")]
+script = ExtResource("2_8c6u1")
+minion_scene = ExtResource("3_2hx34")
+max_minions = 3
+spawn_cooldown = 3.0
+preferred_distance = 300.0
+max_health = 100.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.15508589, 0.2657922, 0.24935588, 1)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=821677803]
+visible = false
+
+[node name="Hitbox" parent="." index="2" unique_id=1940046434]
+visible = false
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1446273988]
+visible = false
+
+[node name="Hurtbox" parent="." index="3" unique_id=411529934]
+visible = false

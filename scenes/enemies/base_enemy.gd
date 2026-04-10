@@ -15,12 +15,15 @@ signal died(enemy: BaseEnemy)
 
 var current_health: float
 var player: Node2D
+var override_color: Color
 
 func _ready() -> void:
 	current_health = max_health
 	player = get_tree().get_first_node_in_group("player")
 	hurtbox.hurt.connect(_on_hurt)
 	health_bar.init(max_health)
+	if override_color:
+		sprite_2d.modulate = override_color
 
 func _physics_process(delta: float) -> void:
 	if player:
