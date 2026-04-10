@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bwliqaih4e2cm"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_4ihl0"]
+[ext_resource type="Script" uid="uid://b5nowmddixg3o" path="res://scenes/enemies/caster_enemy.gd" id="2_bgrno"]
+[ext_resource type="PackedScene" uid="uid://dmgk7plr0ccnk" path="res://scenes/effects/caster_spell.tscn" id="3_26xbn"]
+
+[node name="CasterEnemy" unique_id=1388353835 instance=ExtResource("1_4ihl0")]
+script = ExtResource("2_bgrno")
+cast_spell_scene = ExtResource("3_26xbn")
+preferred_distance = 200.0
+fire_cooldown = 3.0
+spell_width = 150.0
+spell_height = 1600.0
+spell_duration = 0.4
+spell_damage = 100.0
+trigger_range = 300.0
+windup_duration = 0.8
+max_health = 100.0
+shard_scene = null
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.571875, 0.23768552, 0.23768552, 1)
+
+[node name="Hitbox" parent="." index="2" unique_id=1940046434]
+visible = false
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1446273988]
+visible = false
+
+[node name="Hurtbox" parent="." index="3" unique_id=411529934]
+visible = false
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0" unique_id=502563482]
+visible = false

@@ -78,7 +78,7 @@ func _get_camera_rect() -> Rect2:
 	
 func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
-	if attacker is BaseEnemy:
+	if attacker is BaseEnemy or attacker.get_parent() is BaseEnemy:
 		take_damage(attacker.damage)
 	
 	if attacker is BaseProjectile and attacker.shooter == "enemy":
