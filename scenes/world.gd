@@ -26,9 +26,16 @@ func _on_run_completed() -> void:
 	touch_controls.hide()
 	player.set_physics_process(false)
 	player.hide()
+	player.hurtbox.hurt.disconnect(player._on_hurt)
+	_freeze_enemies()
 	quit_button.hide()
 	end_screen.show_end(spawn_manager.elapsed_time, spawn_manager.enemies_killed, shards_earned, Save.total_shards, true, player.completion_bonus_multiplier)
 	
+func _freeze_enemies() -> void:
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.set_process(false)
+		enemy.set_physics_process(false)
+		
 func _on_upgrade_available() -> void:
 	var offers = upgrade_manager.get_upgrade_offers()
 	if offers.is_empty():

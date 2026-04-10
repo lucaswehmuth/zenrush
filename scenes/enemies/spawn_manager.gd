@@ -16,7 +16,7 @@ const MINIMUM_ENEMIES: int = 3
 const MAXIMUM_ENEMIES: int = 100
 
 ## Total game run time in seconds - 10 minutes
-const RUN_DURATION: float = 70.0
+const RUN_DURATION: float = 60.0
 
 const BOSS_SPAWN_TIME: float = RUN_DURATION - 60.0
 
