@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://cdstnrxwj4qo4"]
 
-[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_64bie"]
-[ext_resource type="Script" uid="uid://btoej5iceq1e4" path="res://scenes/enemies/circlecaster_enemy.gd" id="2_atsfn"]
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_y0tvg"]
+[ext_resource type="Script" uid="uid://btoej5iceq1e4" path="res://scenes/enemies/explosive_enemy.gd" id="2_djixy"]
 
-[node name="CircleCasterEnemy" unique_id=1388353835 instance=ExtResource("1_64bie")]
-script = ExtResource("2_atsfn")
+[node name="CircleCasterEnemy" unique_id=1388353835 instance=ExtResource("1_y0tvg")]
+script = ExtResource("2_djixy")
 preferred_distance = 400.0
 fire_cooldown = 3.0
-windup_duration = 1.5
-spell_duration = 0.4
 spell_radius = 50.0
+spell_duration = 0.4
 spell_damage = 20.0
-trigger_range = 450.0
+windup_duration = 1.5
 max_health = 100.0
 shard_scene = null
 

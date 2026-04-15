@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmth6p8wpkc3u"]
 
 [ext_resource type="Texture2D" uid="uid://dpbebwp3hlgm0" path="res://assets/Square.png" id="1_c442c"]
-[ext_resource type="Script" uid="uid://cgqmy3lahf6cq" path="res://scenes/upgrades/orbital_orb.gd" id="1_uo4di"]
+[ext_resource type="Script" path="res://scenes/upgrades/orbital_orb.gd" id="1_uo4di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo4di"]
 

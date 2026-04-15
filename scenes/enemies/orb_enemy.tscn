@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://xs7cno51se2i"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_dfqfa"]
+[ext_resource type="Script" uid="uid://c1xyvdnl4mkqb" path="res://scenes/enemies/orb_enemy.gd" id="2_04vmi"]
+
+[node name="OrbEnemy" unique_id=1388353835 instance=ExtResource("1_dfqfa")]
+script = ExtResource("2_04vmi")
+orbit_radius = 150.0
+orbit_speed = 2.0
+orb_count = 5
+orb_damage = 50.0
+orb_damage_cooldown = 0.5
+max_health = 500.0
+move_speed = 50.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.1385783, 0.014726562, 0.18124998, 1)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=821677803]
+visible = false
+
+[node name="Hitbox" parent="." index="2" unique_id=1940046434]
+visible = false
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1446273988]
+visible = false
+
+[node name="Hurtbox" parent="." index="3" unique_id=411529934]
+visible = false
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0" unique_id=502563482]
+visible = false
