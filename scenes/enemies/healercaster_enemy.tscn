@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dbqwm5elx2fn4"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_8slda"]
+[ext_resource type="Script" uid="uid://cndycds10i8s8" path="res://scenes/enemies/healercaster_enemy.gd" id="2_gs8d5"]
+
+[node name="HealerCasterEnemy" unique_id=1388353835 instance=ExtResource("1_8slda")]
+script = ExtResource("2_gs8d5")
+preferred_distance = 50.0
+fire_cooldown = 5.0
+heal_radius = 400.0
+heal_amount = 20.0
+windup_duration = 3.0
+spell_duration = 0.5
+max_health = 100.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.42841795, 0.66875, 0.43570074, 1)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=821677803]
+visible = false
+
+[node name="Hitbox" parent="." index="2" unique_id=1940046434]
+visible = false
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1446273988]
+visible = false
+
+[node name="Hurtbox" parent="." index="3" unique_id=411529934]
+visible = false
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0" unique_id=502563482]
+visible = false

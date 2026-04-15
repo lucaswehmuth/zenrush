@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bf05f5je3ahu3" path="res://scenes/enemies/charger_enemy.tscn" id="11_q5onr"]
 [ext_resource type="PackedScene" uid="uid://bblbelrlbnvsk" path="res://scenes/enemies/blaster_enemy.tscn" id="12_jhx03"]
 [ext_resource type="PackedScene" uid="uid://8m5babdfw6ol" path="res://scenes/enemies/summoner_enemy.tscn" id="13_jhx03"]
+[ext_resource type="PackedScene" uid="uid://dbqwm5elx2fn4" path="res://scenes/enemies/healercaster_enemy.tscn" id="14_o8fc1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font_size = 32
@@ -171,3 +172,7 @@ position = Vector2(55, 264)
 
 [node name="SummonerEnemy" parent="." unique_id=1112329870 instance=ExtResource("13_jhx03")]
 position = Vector2(103, 699)
+
+[node name="HealerCasterEnemy" parent="." unique_id=2017963819 instance=ExtResource("14_o8fc1")]
+position = Vector2(413, 148)
+heal_amount = 10.0

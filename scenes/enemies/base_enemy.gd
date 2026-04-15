@@ -48,7 +48,7 @@ func _on_hurt(hitbox: Hitbox) -> void:
 			attacker.pierce_count -= 1
 
 func take_damage(amount: float) -> void:
-	current_health -= amount
+	current_health = min(current_health - amount, max_health)
 	health_bar.health = current_health
 	if current_health <= 0.0:
 		die()
