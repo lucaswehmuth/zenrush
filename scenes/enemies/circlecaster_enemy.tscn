@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cdstnrxwj4qo4"]
+
+[ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_64bie"]
+[ext_resource type="Script" uid="uid://btoej5iceq1e4" path="res://scenes/enemies/circlecaster_enemy.gd" id="2_atsfn"]
+
+[node name="CircleCasterEnemy" unique_id=1388353835 instance=ExtResource("1_64bie")]
+script = ExtResource("2_atsfn")
+preferred_distance = 400.0
+fire_cooldown = 3.0
+windup_duration = 1.5
+spell_duration = 0.4
+spell_radius = 50.0
+spell_damage = 20.0
+trigger_range = 450.0
+max_health = 100.0
+shard_scene = null
+
+[node name="Sprite2D" parent="." index="0" unique_id=957711389]
+modulate = Color(0.6019666, 0.42578125, 0.68125, 1)
+
+[node name="Hitbox" parent="." index="2" unique_id=1940046434]
+visible = false
+
+[node name="Hurtbox" parent="." index="3" unique_id=411529934]
+visible = false

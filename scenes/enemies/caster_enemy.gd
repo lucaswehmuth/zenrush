@@ -26,19 +26,6 @@ func _ready() -> void:
 	_beam.visible = false
 	add_child(_beam)
 	
-#func _ready() -> void:
-	#super()
-
-#func _cast_spell() -> void:
-	#if not cast_spell_scene:
-		#return
-	#var spell = cast_spell_scene.instantiate()
-	#spell.damage = spell_damage
-	#spell.spell_duration = spell_duration
-	#spell.rotation = (player.global_position - global_position).angle() + PI / 2.0
-	#spell.global_position = global_position
-	#get_tree().current_scene.add_child(spell)
-	
 func _cast_spell() -> void:
 	var locked_rotation: float = (player.global_position - global_position).angle() + PI / 2.0
 	_beam.clear_points()
