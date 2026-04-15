@@ -4,7 +4,7 @@ extends BaseEnemy
 @export var cast_spell_scene: PackedScene
 @export var preferred_distance: float = 200.0
 @export var fire_cooldown: float = 3.0
-@export var spell_width: float = 150.0
+@export var spell_width: float = 400.0
 @export var spell_height: float = 1600.0
 @export var spell_duration: float = 0.4
 @export var spell_damage: float = 100.0
