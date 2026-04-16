@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d2oi4h4yx7wvd"]
+
+[ext_resource type="Script" uid="uid://bm22hae0r4ht1" path="res://scenes/components/damage_label.gd" id="1_jxlft"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jxlft"]
+font_size = 52
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DamageLabel" type="Label" unique_id=1899423850]
+z_index = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -22.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Damage"
+label_settings = SubResource("LabelSettings_jxlft")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_jxlft")

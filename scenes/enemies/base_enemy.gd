@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 signal died(enemy: BaseEnemy)
 
+const DAMAGE_LABEL = preload("uid://d2oi4h4yx7wvd")
+
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var health_bar: HealthBar = $HealthBar
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -50,9 +52,17 @@ func _on_hurt(hitbox: Hitbox) -> void:
 func take_damage(amount: float) -> void:
 	current_health = min(current_health - amount, max_health)
 	health_bar.health = current_health
+	_spawn_damage_label(amount)
+
 	if current_health <= 0.0:
 		die()
 
+func _spawn_damage_label(amount: float) -> void:
+	var label := DAMAGE_LABEL.instantiate() as DamageLabel
+	add_child(label)
+	label.position = Vector2(0, -40)
+	label.spawn(amount)
+	
 func die() -> void:
 	if shard_scene:
 		var shard = shard_scene.instantiate()
