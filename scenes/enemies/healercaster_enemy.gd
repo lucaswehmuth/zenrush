@@ -1,6 +1,9 @@
 class_name HealerCasterEnemy
 extends BaseEnemy
 
+@onready var heal_area: Area2D = $HealArea
+@onready var heal_shape: CollisionShape2D = $HealArea/CollisionShape2D
+
 @export var preferred_distance: float = 50.0
 @export var fire_cooldown: float = 5.0
 @export var heal_radius: float = 400.0
@@ -14,6 +17,7 @@ var _circle: Polygon2D
 
 func _ready() -> void:
 	super()
+	(heal_shape.shape as CircleShape2D).radius = heal_radius
 	_find_closest_enemy()
 	_circle = Polygon2D.new()
 	_circle.polygon = _make_circle_polygon(heal_radius)
@@ -62,11 +66,12 @@ func _cast_spell() -> void:
 	_circle.visible = false
 
 func _heal_nearby_enemies() -> void:
-	for enemy in get_tree().get_nodes_in_group("enemy"):
-		if enemy == self:
+	for area in heal_area.get_overlapping_areas():
+		var parent := area.get_parent()
+		if parent == self:
 			continue
-		if global_position.distance_to(enemy.global_position) <= heal_radius:
-			enemy.take_damage(-heal_amount)
+		if parent.is_in_group("enemy"):
+			parent.take_damage(-heal_amount)
 
 func _physics_process(delta: float) -> void:
 	_fire_timer -= delta

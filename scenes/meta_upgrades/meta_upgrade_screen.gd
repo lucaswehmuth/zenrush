@@ -2,7 +2,7 @@ extends Control
 
 @onready var upgrade_list: HFlowContainer = $RootVBox/ScrollContainer/UpgradeList
 @onready var meta_progression_manager: MetaProgressionManager = $MetaProgressionManager
-@onready var back_button: Button = $RootVBox/BackButton
+@onready var back_button: Button = $RootVBox/HBoxContainer/BackButton
 
 const UPGRADE_ITEM_SCENE = preload("res://scenes/meta_upgrades/meta_upgrade_item.tscn")
 

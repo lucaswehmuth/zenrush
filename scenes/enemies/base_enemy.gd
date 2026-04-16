@@ -15,6 +15,9 @@ const DAMAGE_LABEL = preload("uid://d2oi4h4yx7wvd")
 @export var shard_value: int = 1
 @export var shard_scene: PackedScene
 
+@export var show_health_bar: bool = false
+@export var show_damage_numbers: bool = true
+
 var current_health: float
 var player: Node2D
 var override_color: Color
@@ -24,6 +27,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	hurtbox.hurt.connect(_on_hurt)
 	health_bar.init(max_health)
+	health_bar.visible = show_health_bar
 	if override_color:
 		sprite_2d.modulate = override_color
 
@@ -51,17 +55,19 @@ func _on_hurt(hitbox: Hitbox) -> void:
 
 func take_damage(amount: float) -> void:
 	current_health = min(current_health - amount, max_health)
-	health_bar.health = current_health
-	_spawn_damage_label(amount)
-
+	if show_health_bar:
+		health_bar.health = current_health
+	if show_damage_numbers:
+		_spawn_damage_label(amount)
 	if current_health <= 0.0:
 		die()
 
 func _spawn_damage_label(amount: float) -> void:
 	var label := DAMAGE_LABEL.instantiate() as DamageLabel
 	add_child(label)
+	var color := Color.WHITE if amount > 0 else Color.LIME_GREEN
 	label.position = Vector2(0, -40)
-	label.spawn(amount)
+	label.spawn(amount, color)
 	
 func die() -> void:
 	if shard_scene:

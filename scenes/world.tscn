@@ -175,4 +175,4 @@ position = Vector2(103, 699)
 
 [node name="HealerCasterEnemy" parent="." unique_id=2017963819 instance=ExtResource("14_o8fc1")]
 position = Vector2(413, 148)
-heal_amount = 10.0
+heal_radius = 400.0

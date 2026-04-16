@@ -38,9 +38,20 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="BackButton" type="Button" parent="RootVBox" unique_id=747513369]
+[node name="HBoxContainer" type="HBoxContainer" parent="RootVBox" unique_id=867286785]
 layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BackButton" type="Button" parent="RootVBox/HBoxContainer" unique_id=747513369]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Back"
+
+[node name="Reset" type="Button" parent="RootVBox/HBoxContainer" unique_id=265560309]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset
+"
 
 [node name="MetaProgressionManager" type="Node2D" parent="." unique_id=1984802171]
 script = ExtResource("2_dep2m")

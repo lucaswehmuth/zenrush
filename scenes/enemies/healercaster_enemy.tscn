@@ -3,11 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://cuh1sjvtpu4y3" path="res://scenes/enemies/base_enemy.tscn" id="1_8slda"]
 [ext_resource type="Script" uid="uid://cndycds10i8s8" path="res://scenes/enemies/healercaster_enemy.gd" id="2_gs8d5"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gs8d5"]
+radius = 400.0
+
 [node name="HealerCasterEnemy" unique_id=1388353835 instance=ExtResource("1_8slda")]
 script = ExtResource("2_gs8d5")
 preferred_distance = 50.0
 fire_cooldown = 5.0
-heal_radius = 400.0
+heal_radius = 500.0
 heal_amount = 10.0
 windup_duration = 3.0
 spell_duration = 0.5
@@ -30,3 +33,8 @@ visible = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0" unique_id=502563482]
 visible = false
+
+[node name="HealArea" type="Area2D" parent="." index="5" unique_id=2093134102]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealArea" index="0" unique_id=724421164]
+shape = SubResource("CircleShape2D_gs8d5")

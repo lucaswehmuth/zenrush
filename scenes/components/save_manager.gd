@@ -10,6 +10,7 @@ func _ready() -> void:
 	load_game()
 	if OS.is_debug_build():
 		total_shards = 9999
+		meta_levels = {}
 
 func add_shards(amount: int) -> void:
 	total_shards += amount
