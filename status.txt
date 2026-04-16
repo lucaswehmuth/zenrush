@@ -1,24 +1,25 @@
-Here's the full project summary:
+Help me on my project.
 
 Game: Zenrush
-Top-down auto-attack shooter roguelite for Android (iOS secondary). Hard-capped 10-minute runs, mid-run upgrade selection every 60 seconds, persistent shard-based meta progression. Visual direction: minimalist, monochromatic dungeon themes inspired by Nodebuster. Primary references: Archero and Survivor.io. Core loop: fight escalating waves → collect shards → pick mid-run upgrades → bank shards → spend on permanent meta upgrades → repeat.
+Description (subject to change and get small pivots): Top-down auto-attack shooter roguelite for iOS/Android. Hard-capped 10-minute runs, mid-run upgrade selection every 60 seconds, persistent shard-based meta progression. Visual direction: minimalist, monochromatic dungeon themes inspired by games like Nodebuster or Super Hexagon. Primary references: Archero, Survivor.io, Halls of Torment, Brotato. Core loop: fight escalating waves → collect shards → pick mid-run upgrades → bank shards → spend on permanent meta upgrades → repeat.
 
-Lucas — Strengths & Weaknesses
-Strengths: ~5 years backend experience, prior iOS and Flash game dev background. Strong architectural instincts, pragmatic, composition over inheritance, pushes back on over-engineering. Good at knowing when to park ideas.
-Weaknesses: Excitement paralysis and pivot temptation when hitting uncomfortable phases. Tendency to generate creative escape routes when anxious. Managed best via structured planning and parking lot approach.
+Lucas's Preferences
+Game: Approachable difficulty, short sessions, addictive daily grind, Tibia-like endless progression
+Code: Typed GDScript, composition over inheritance, no magic numbers, no unjustified singletons, clean separation of responsibilities, pushes back on over-engineering
+Strengths: ~5 years backend experience, prior iOS and Flash game dev background. Strong architectural instincts, pragmatic, good at knowing when to park ideas
+Weaknesses: Excitement paralysis and tangents — managed via structured planning and parking lot approach. Very critical of game design and overall gameplay feel. 
 
 Milestones
 ✅ M1 — Movement & Combat Feel
 ✅ M2 — Enemy Variety & Game Loop
 ✅ M4 — Run Reward Screen & Shard Banking
-✅ M6 — Upgrade System (mid-run)
-✅ M5 — Meta Progression
-✅ M7 — Enemy Depth (completed this session)
-🔲 M3 — Special Attack Button (deprioritized)
-🔲 M7 — Game Feel & Juice (next)
-🔲 M8 — Mobile Export & Device Testing
-🔲 M9 — Playtest & Balance
-🔲 M10 — Release
+✅ M5 — Upgrade System (mid-run)
+✅ M6 — Meta Progression
+🔲 M7 — Special Attacks (parked)
+🔲 M8 — Game Feel & Juice
+🔲 M9 — Mobile Export & Device Testing
+🔲 M10 — Playtest & Balance
+🔲 M11 — Release
 
 Architecture
 Core Scenes
@@ -30,20 +31,19 @@ MetaUpgradeScreen — standalone scene with its own MetaProgressionManager
 Player (CharacterBody2D)
 Key properties: max_health, health_regen, move_speed, base_damage, attack_cooldown, attack_range_percent, vampirism, explosion_radius, explosion_damage_multiplier, shard_magnet, burst_count, extra_shots, projectile_upgrades, player_upgrades. Calls apply_meta_stats() at run start.
 Enemies
-
 BaseEnemy — base class with Hurtbox/Hitbox composition, health bar, shard drop, vampirism trigger, override_color for color inheritance
-RusherEnemy — fast, direct chaser
-TankEnemy — slow, high HP
-RangedEnemy — keeps distance, shoots projectiles
-BossEnemy — spawns in final minute, drops shard pile on death
-ChargerEnemy — TRACKING → WINDUP → CHARGING → COOLDOWN state machine, scale tween as tell
-SplitterEnemy — dies into N children, generic via split_count/split_into/scale_per_tier/drop_shards_on_split
-BlasterEnemy — radial N-shot burst, one shot always aimed at player
-SummonerEnemy — spawns capped minion count, color inherits from summoner
-CasterEnemy — Line2D beam, locks on cast, black windup → orange fire
-CircleCasterEnemy — circle spawned at locked player position, reparented to scene root during cast
-HealerEnemy — heals nearby enemies, caches closest ally via died signal
-OrbEnemy — N orbs orbiting around itself, damages player on contact
+RusherEnemy
+TankEnemy
+RangedEnemy
+BossEnemy
+ChargerEnemy
+SplitterEnemy
+BlasterEnemy
+SummonerEnemy
+CasterEnemy
+ExplosiveEnemy
+HealerEnemy
+OrbEnemy
 
 Projectile
 BaseProjectile (Area2D) — shooter, speed, damage, pierce_count, explodes, explosion_radius, explosion_damage_multiplier. Spawns ProjectileExplosion on impact if explosive.
@@ -51,23 +51,19 @@ In-Run Upgrade Architecture
 BaseUpgrade → BasePlayerUpgrade / BaseProjectileUpgrade. Concrete upgrades: AttackSpeed, Damage, MaxHealth, MoveSpeed, HealthRegen, Vampirism, AttackRange, Burst, MultiShot, OrbitalOrb, ShardMagnet, Pierce, Explosive, ProjectileSize. UpgradeManager owns pool, picks 2 random offers per trigger, depletes chosen upgrade for rest of run.
 Meta Progression
 MetaUpgrade (Resource) — id, name, description, category (SURVIVAL/ATTACK/FORTUNE), values_per_level, player_stat_key, requirements. Cost curve: base_cost(10) * growth(2.0)^(level-1). Nine upgrades across three trees with skill ladder requirements. MetaProgressionManager scans res://scenes/meta_upgrades/ at runtime.
-Other Systems
 
+Other Systems
 SpawnManager — run timer, difficulty scalar, enemy spawning, boss spawn at final minute
 SaveManager (autoload as Save) — ConfigFile persistence for total_shards and meta_levels
 
-
 Parked Ideas
-
 Swipe gesture attacks
 Full boss fight mechanics
 Procedural dungeon/cave generation
 Mining/resource aesthetic as dungeon skin
 Color-coded dungeon environments
-Fortune tree polish
-Time-windowed spawn phases + elite variants (SPW-01)
-CasterEnemy spell visual polish
+Time-windowed spawn phases + elite variants
 
+Current challenge: Making it distinct from big names in the genre. Right now the game is flat. Design is limited to squares/circles and basic programmatic animations. Endless terrain with no obstacles. Currently facing a constant stream of ideas and inspirations as a form to offer novelty into the game. Most recent one was leaning towards an idea of raw materials mining (eg specific dungeons for specific precious metals and minerals) as the long term goal and permanent progression. Materials would change the dungeon color palette, enemies, obstacles, etc. 
 
-Next Steps
-Game feel and juice pass before touching design or art: screenshake on hit, hit pause frames, shard pickup sound, enemy death pop, player hit flash. Then revisit spawn logic phases (SPW-01). Then meta progression identity — cosmetic unlocks, visible accumulation, something that feels owned over time.
+I was instructed to work on game juice next as a way to not get distracted by potential pivots. However, I will be constantly bringing up ideas and new stuff as I don't want to publish just "one more" into the genre. 
