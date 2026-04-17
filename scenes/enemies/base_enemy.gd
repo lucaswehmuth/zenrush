@@ -15,11 +15,15 @@ const DAMAGE_LABEL = preload("uid://d2oi4h4yx7wvd")
 @export var shard_value: int = 1
 @export var shard_scene: PackedScene
 
+@export var show_hit_flash: bool = true
 @export var show_health_bar: bool = false
 @export var show_damage_numbers: bool = true
+@export var stun_on_hit: bool = false
+@export var stun_on_hit_duration: float = 0.0
 
 var current_health: float
 var player: Node2D
+var original_color: Color
 var override_color: Color
 
 func _ready() -> void:
@@ -30,6 +34,7 @@ func _ready() -> void:
 	health_bar.visible = show_health_bar
 	if override_color:
 		sprite_2d.modulate = override_color
+	original_color = sprite_2d.modulate
 
 func _physics_process(delta: float) -> void:
 	if player:
@@ -59,6 +64,10 @@ func take_damage(amount: float) -> void:
 		health_bar.health = current_health
 	if show_damage_numbers:
 		_spawn_damage_label(amount)
+	if show_hit_flash:
+		_flash()
+	if stun_on_hit:
+		_stun()
 	if current_health <= 0.0:
 		die()
 
@@ -68,6 +77,16 @@ func _spawn_damage_label(amount: float) -> void:
 	var color := Color.WHITE if amount > 0 else Color.LIME_GREEN
 	label.position = Vector2(0, -40)
 	label.spawn(amount, color)
+	
+func _flash() -> void:
+	var tween := create_tween()
+	tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.05)
+	tween.tween_property(sprite_2d, "modulate", original_color, 0.1)
+	
+func _stun(duration: float = stun_on_hit_duration) -> void:
+	set_physics_process(false)
+	await get_tree().create_timer(duration).timeout
+	set_physics_process(true)
 	
 func die() -> void:
 	if shard_scene:
