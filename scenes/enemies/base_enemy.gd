@@ -18,8 +18,6 @@ const DAMAGE_LABEL = preload("uid://d2oi4h4yx7wvd")
 @export var show_hit_flash: bool = true
 @export var show_health_bar: bool = false
 @export var show_damage_numbers: bool = true
-@export var stun_on_hit: bool = false
-@export var stun_on_hit_duration: float = 0.0
 
 var current_health: float
 var player: Node2D
@@ -50,7 +48,7 @@ func _move(delta: float) -> void:
 func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
 	if attacker is BaseProjectile and attacker.shooter == "player":
-		take_damage(attacker.damage)
+		take_damage(attacker.damage, attacker.stun_on_hit, attacker.stun_duration)
 		if attacker.explodes:
 			attacker._explode()
 		if attacker.pierce_count <= 0:
@@ -58,7 +56,7 @@ func _on_hurt(hitbox: Hitbox) -> void:
 		else:
 			attacker.pierce_count -= 1
 
-func take_damage(amount: float) -> void:
+func take_damage(amount: float, stun: bool = false, stun_duration: float = 0.0) -> void:
 	current_health = min(current_health - amount, max_health)
 	if show_health_bar:
 		health_bar.health = current_health
@@ -66,8 +64,8 @@ func take_damage(amount: float) -> void:
 		_spawn_damage_label(amount)
 	if show_hit_flash:
 		_flash()
-	if stun_on_hit:
-		_stun()
+	if stun:
+		_stun(stun_duration)
 	if current_health <= 0.0:
 		die()
 
@@ -83,7 +81,7 @@ func _flash() -> void:
 	tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.05)
 	tween.tween_property(sprite_2d, "modulate", original_color, 0.1)
 	
-func _stun(duration: float = stun_on_hit_duration) -> void:
+func _stun(duration: float) -> void:
 	set_physics_process(false)
 	await get_tree().create_timer(duration).timeout
 	set_physics_process(true)
