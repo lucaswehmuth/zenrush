@@ -5,6 +5,8 @@ var input_vector = Vector2.ZERO
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var healthbar: HealthBar = $Healthbar
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var muzzle_flash: CPUParticles2D = $MuzzleFlash
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var completion_bonus_multiplier: float = 1.5
 @export var max_health: float = 1000.0
@@ -152,6 +154,15 @@ func _spawn_projectile(direction: Vector2) -> void:
 		
 	for upgrade in projectile_upgrades:
 		upgrade.apply(projectile, self)
+		
+	_trigger_muzzle_flash(global_position, direction)
+
+func _trigger_muzzle_flash(spawn_position: Vector2, direction: Vector2) -> void:
+	var half_size = sprite_2d.texture.get_size() * sprite_2d.scale / 2.0
+	var offset = direction * max(half_size.x, half_size.y)
+	muzzle_flash.global_position = spawn_position + offset
+	muzzle_flash.rotation = direction.angle()
+	muzzle_flash.restart()
 	
 func _get_dynamic_range() -> float:
 	var screen_size = _get_screen_size_world()

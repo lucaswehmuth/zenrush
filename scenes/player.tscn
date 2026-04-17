@@ -12,6 +12,9 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(16, 16)
 
+[sub_resource type="Gradient" id="Gradient_qlg0r"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D" unique_id=423775517 groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_g2els")
@@ -38,3 +41,16 @@ offset_left = -30.0
 offset_top = -26.0
 offset_right = 30.0
 offset_bottom = -20.0
+
+[node name="MuzzleFlash" type="CPUParticles2D" parent="." unique_id=857649625]
+emitting = false
+amount = 6
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 1.0
+spread = 25.0
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_qlg0r")
