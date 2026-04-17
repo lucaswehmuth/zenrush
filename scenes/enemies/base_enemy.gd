@@ -23,6 +23,7 @@ var current_health: float
 var player: Node2D
 var original_color: Color
 var override_color: Color
+var _is_knocked_back: bool = false
 
 func _ready() -> void:
 	current_health = max_health
@@ -35,20 +36,20 @@ func _ready() -> void:
 	original_color = sprite_2d.modulate
 
 func _physics_process(delta: float) -> void:
-	if player:
+	if player and not _is_knocked_back:
 		_move(delta)
 	move_and_slide()
 
 # Override this in each variant
 func _move(delta: float) -> void:
-	# TODO - remove later
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * move_speed
 	
 func _on_hurt(hitbox: Hitbox) -> void:
 	var attacker = hitbox.get_parent()
 	if attacker is BaseProjectile and attacker.shooter == "player":
-		take_damage(attacker.damage, attacker.stun_on_hit, attacker.stun_duration)
+		var knockback_dir: Vector2 = (global_position - attacker.global_position).normalized()
+		take_damage(attacker.damage, attacker.stun_on_hit, attacker.stun_duration, knockback_dir, attacker.knockback_amount)
 		if attacker.explodes:
 			attacker._explode()
 		if attacker.pierce_count <= 0:
@@ -56,7 +57,8 @@ func _on_hurt(hitbox: Hitbox) -> void:
 		else:
 			attacker.pierce_count -= 1
 
-func take_damage(amount: float, stun: bool = false, stun_duration: float = 0.0) -> void:
+func take_damage(amount: float, stun: bool = false, stun_duration: float = 0.0, 
+knockback_dir: Vector2 = Vector2.ZERO, knockback_amount: float = 0.0) -> void:
 	current_health = min(current_health - amount, max_health)
 	if show_health_bar:
 		health_bar.health = current_health
@@ -66,6 +68,8 @@ func take_damage(amount: float, stun: bool = false, stun_duration: float = 0.0) 
 		_flash()
 	if stun:
 		_stun(stun_duration)
+	if knockback_amount > 0.0:
+		_knockback(knockback_dir, knockback_amount)
 	if current_health <= 0.0:
 		die()
 
@@ -85,6 +89,13 @@ func _stun(duration: float) -> void:
 	set_physics_process(false)
 	await get_tree().create_timer(duration).timeout
 	set_physics_process(true)
+	
+func _knockback(direction: Vector2, amount: float) -> void:
+	_is_knocked_back = true
+	var tween := create_tween()
+	tween.tween_property(self, "position", position + direction * amount, 0.1)
+	await tween.finished
+	_is_knocked_back = false
 	
 func die() -> void:
 	if shard_scene:

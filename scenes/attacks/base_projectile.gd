@@ -5,7 +5,7 @@ extends Area2D
 @export var explosion_scene: PackedScene
 @export var speed: float = 400.0
 @export var damage: float = 10.0
-@export var knockback_amount: float = 0.0
+@export var knockback_amount: float = 10.0
 @export var stun_on_hit: bool = true
 @export var stun_duration: float = 0.05
 
