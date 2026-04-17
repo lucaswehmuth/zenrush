@@ -13,6 +13,7 @@ var input_vector = Vector2.ZERO
 @export var health_regen: float = 0.0
 @export var move_speed: float = 300.0
 @export var projectile_scene: PackedScene
+@export var projectile_spawn_jitter: float = 5.0
 @export var attack_range_percent: float = 0.9
 @export var attack_cooldown: float = 0.5
 @export var attack_explosion_radius: float = 0.0
@@ -145,7 +146,9 @@ func _spawn_projectile(direction: Vector2) -> void:
 	var projectile = projectile_scene.instantiate()
 	projectile.shooter = "player"
 	get_tree().current_scene.add_child(projectile)
-	projectile.init(global_position, direction)
+	var perpendicular = direction.orthogonal()
+	var spawn_offset = perpendicular * randf_range(-projectile_spawn_jitter, projectile_spawn_jitter)
+	projectile.init(global_position + spawn_offset, direction)
 	
 	if attack_explosion_radius > 0:
 		projectile.explodes = true
