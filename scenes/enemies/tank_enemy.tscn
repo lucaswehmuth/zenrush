@@ -5,6 +5,7 @@
 
 [node name="TankEnemy" unique_id=1388353835 instance=ExtResource("1_4q0m4")]
 scale = Vector2(0.3, 0.3)
+collision_mask = 0
 script = ExtResource("2_egecj")
 max_health = 100.0
 show_health_bar = true

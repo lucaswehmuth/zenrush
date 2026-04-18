@@ -5,6 +5,7 @@
 
 [node name="ChargerEnemy" unique_id=1388353835 instance=ExtResource("1_sbthj")]
 scale = Vector2(0.5, 0.5)
+collision_mask = 0
 script = ExtResource("2_cpxnj")
 charge_speed = 500.0
 charge_duration = 0.6
