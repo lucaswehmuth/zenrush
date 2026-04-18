@@ -31,7 +31,6 @@ func _make_circle_polygon(radius: float) -> PackedVector2Array:
 	return points
 
 func _cast_spell() -> void:
-	print(spell_radius)
 	var target_pos: Vector2 = player.global_position
 	remove_child(_circle)
 	get_tree().current_scene.add_child(_circle)

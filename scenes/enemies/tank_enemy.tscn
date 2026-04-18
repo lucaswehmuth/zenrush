@@ -7,6 +7,7 @@
 scale = Vector2(0.3, 0.3)
 script = ExtResource("2_egecj")
 max_health = 100.0
+show_health_bar = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=957711389]
 modulate = Color(0.34101894, 7.069204e-07, 1.2032687e-07, 1)

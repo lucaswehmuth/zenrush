@@ -7,7 +7,6 @@ extends Label
 @export var offset_above: float = 120.0
 
 func spawn(amount: float, color: Color = Color.WHITE) -> void:
-	print(color)
 	text = str(int(abs(amount)))
 	await get_tree().process_frame
 	label_settings = label_settings.duplicate()

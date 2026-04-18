@@ -15,6 +15,7 @@ charge_trigger_range = 800.0
 max_health = 500.0
 move_speed = 60.0
 damage = 50.0
+show_health_bar = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=957711389]
 modulate = Color(0.2369943, 2.5419052e-07, 7.821247e-08, 1)
