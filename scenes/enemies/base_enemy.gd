@@ -15,6 +15,7 @@ const DAMAGE_LABEL = preload("uid://d2oi4h4yx7wvd")
 @export var shard_value: int = 1
 @export var shard_scene: PackedScene
 
+@export var hit_effect_scene: PackedScene
 @export var show_hit_flash: bool = true
 @export var show_health_bar: bool = false
 @export var show_damage_numbers: bool = true
@@ -50,6 +51,12 @@ func _on_hurt(hitbox: Hitbox) -> void:
 	if attacker is BaseProjectile and attacker.shooter == "player":
 		var knockback_dir: Vector2 = (global_position - attacker.global_position).normalized()
 		take_damage(attacker.damage, attacker.stun_on_hit, attacker.stun_duration, knockback_dir, attacker.knockback_amount)
+		
+		if hit_effect_scene:
+			var effect = hit_effect_scene.instantiate()
+			effect.global_position = attacker.global_position
+			effect.modulate = original_color
+			get_tree().current_scene.add_child(effect)
 		if attacker.explodes:
 			attacker._explode()
 		if attacker.pierce_count <= 0:

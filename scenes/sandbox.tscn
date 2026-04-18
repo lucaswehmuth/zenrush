@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cv1ew04lblibr" path="res://scenes/upgrades/upgrade_manager.tscn" id="17_8b5lh"]
 [ext_resource type="PackedScene" uid="uid://dbqwm5elx2fn4" path="res://scenes/enemies/healercaster_enemy.tscn" id="17_hc7ve"]
 [ext_resource type="PackedScene" uid="uid://blana2tfvync" path="res://scenes/enemies/boss_enemy.tscn" id="18_hc7ve"]
+[ext_resource type="PackedScene" uid="uid://8m5babdfw6ol" path="res://scenes/enemies/summoner_enemy.tscn" id="19_vvfch"]
 
 [sub_resource type="Resource" id="Resource_8b5lh"]
 script = ExtResource("10_g7mfh")
@@ -171,6 +172,12 @@ position = Vector2(102, 185)
 
 [node name="BossEnemy" parent="." unique_id=1792061877 instance=ExtResource("18_hc7ve")]
 position = Vector2(422, 219)
+max_health = 100.0
+move_speed = 0.0
+
+[node name="SummonerEnemy" parent="." unique_id=1941712032 instance=ExtResource("19_vvfch")]
+position = Vector2(394, 82)
+move_speed = 0.0
 
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_back_button_button_up"]
